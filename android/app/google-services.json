@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "881457933735",
+    "project_id": "new-spin-the-bottle",
+    "storage_bucket": "new-spin-the-bottle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:881457933735:android:257c20fae972f8e9159a82",
+        "android_client_info": {
+          "package_name": "com.example.mood_today"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1X1nhHBxfIl7ysF08u4Qq99vVXGbbIdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
