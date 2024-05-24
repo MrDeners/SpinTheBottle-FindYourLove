@@ -67,7 +67,7 @@ class AuthValidator {
     final Map<String, bool> validity = <String, bool>{
       AuthConstants.lengthMapKey: false,
       AuthConstants.casesMapKey: false,
-      AuthConstants.specialSymbolsMapKey: false
+      AuthConstants.specialSymbolsMapKey: false,
     };
     if (value.isEmpty) {
       return null;

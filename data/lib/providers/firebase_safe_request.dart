@@ -4,7 +4,6 @@ import 'package:core/core.dart';
 import 'package:domain/domain.dart';
 
 class SafeRequestService {
-
   static const String noMessageExceptionCode = 'No message';
   static const String invalidCredentialExceptionCode = 'invalid-credential';
   static const String invalidCredentialsExceptionCode = 'invalid-credential';
@@ -34,37 +33,45 @@ class SafeRequestService {
       }
       if (responseCode == invalidEmailExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_emailInvalid.tr(),
-            code: AppExceptionCode.invalidEmail);
+          errorMessage: LocaleKeys.validators_emailInvalid.tr(),
+          code: AppExceptionCode.invalidEmail,
+        );
       }
       if (responseCode == userDisabledExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_accountDisabled.tr(),
-            code: AppExceptionCode.disabledAccount);
+          errorMessage: LocaleKeys.validators_accountDisabled.tr(),
+          code: AppExceptionCode.disabledAccount,
+        );
       }
       if (responseCode == userNotFoundExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_emailNotRegister.tr(),
-            code: AppExceptionCode.notRegistered);
+          errorMessage: LocaleKeys.validators_emailNotRegister.tr(),
+          code: AppExceptionCode.notRegistered,
+        );
       }
       if (responseCode == wrongPasswordExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_passwordWrong.tr(),
-            code: AppExceptionCode.wrongPassword);
+          errorMessage: LocaleKeys.validators_passwordWrong.tr(),
+          code: AppExceptionCode.wrongPassword,
+        );
       }
       if (responseCode == emailAlreadyInUseExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_emailInUse.tr(), code: AppExceptionCode.usedEmail);
+          errorMessage: LocaleKeys.validators_emailInUse.tr(),
+          code: AppExceptionCode.usedEmail,
+        );
       }
       if (responseCode == operationNotAllowedExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_registrationNotAllowed.tr(),
-            code: AppExceptionCode.notAllowedRegistrationMethod);
+          errorMessage: LocaleKeys.validators_registrationNotAllowed.tr(),
+          code: AppExceptionCode.notAllowedRegistrationMethod,
+        );
       }
       if (responseCode == weakPasswordExceptionCode) {
         throw AppException(
-            errorMessage: LocaleKeys.validators_passwordDifficult.tr(),
-            code: AppExceptionCode.weakPassword);
+          errorMessage: LocaleKeys.validators_passwordDifficult.tr(),
+          code: AppExceptionCode.weakPassword,
+        );
       }
     } catch (e) {
       throw const AppException.unknown();

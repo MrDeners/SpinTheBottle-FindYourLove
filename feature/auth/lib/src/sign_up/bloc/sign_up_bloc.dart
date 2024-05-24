@@ -9,17 +9,21 @@ import '../../../constants/auth_constants.dart';
 import '../../../validators/auth_validator.dart';
 
 part 'sign_up_event.dart';
+
 part 'sign_up_state.dart';
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
   final AppRouter _appRouter;
   final SignUpUseCase _signUpUseCase;
+  final WriteUserToDbUseCase _writeUserToDbUseCase;
 
   SignUpBloc({
     required AppRouter appRouter,
     required SignUpUseCase signUpUseCase,
+    required WriteUserToDbUseCase writeUserToDbUseCase,
   })  : _appRouter = appRouter,
         _signUpUseCase = signUpUseCase,
+        _writeUserToDbUseCase = writeUserToDbUseCase,
         super(const SignUpState()) {
     on<NavigateBackEvent>(_onNavigateBack);
     on<SignUp>(_onSignUp);
@@ -47,7 +51,9 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
           AuthConstants.emailError: AuthValidator.emailValidator(value: event.email),
           AuthConstants.passwordError: AuthValidator.passwordValidator(value: event.password),
           AuthConstants.confirmPasswordError: AuthValidator.confirmPasswordValidator(
-              password: event.password, confirmPassword: event.confirmPassword),
+            password: event.password,
+            confirmPassword: event.confirmPassword,
+          ),
         },
       ),
     );
@@ -61,7 +67,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
             password: state.password,
           ),
         );
-        await _appRouter.replaceAll(<PageRouteInfo>[const SignInRoute()]);
+        await _writeUserToDbUseCase.execute(
+          UserModel(
+            id: FirebaseAuth.instance.currentUser!.uid,
+            firstName: state.name,
+          ),
+        );
+        await _appRouter.replaceAll(<PageRouteInfo>[const HomeRoute()]);
         emit(
           state.copyWith(
             toast: ToastModel(message: LocaleKeys.authScreen_logIn.tr(), type: ToastType.Success),

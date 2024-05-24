@@ -5,7 +5,10 @@
     "search": "Найти",
     "recentlyUsed": "Недавно использованные",
     "selected": "Выбрано",
-    "clearAll": "Очистить список"
+    "clearAll": "Очистить список",
+    "play": "Играть",
+    "profile": "Профиль",
+    "settings": "Настройки"
   },
   "authScreen" : {
     "name" : "Имя",
@@ -19,7 +22,8 @@
     "forgotPassword" : "Забыли пароль?",
     "email" : "Email",
     "confirmPassword" : "Подтверждение пароля",
-    "signUp" : "Зарегистрироваться",
+    "signUp" : "Регистрация",
+    "signUpSecondary" : "Зарегистрироваться",
     "newPassword" : "Новый пароль",
     "changePassword" : "Изменить пароль",
     "successLogIn" : "Успешная авторизация"

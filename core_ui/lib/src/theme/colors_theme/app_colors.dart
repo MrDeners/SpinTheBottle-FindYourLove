@@ -6,7 +6,7 @@ class AppColors {
   static const Color white = Color.fromRGBO(255, 255, 255, 1);
   static const Color black = Color.fromRGBO(0, 0, 0, 1);
 
-  static const Color lavenderIndigo = Color.fromRGBO(123, 97, 255, 1);
+  static const Color lavenderIndigo = Color.fromRGBO(117, 20, 129, 1);
 
   static const Color piggyPink = Color.fromRGBO(250, 217, 230, 1);
 

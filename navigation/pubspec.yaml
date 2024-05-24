@@ -17,10 +17,12 @@ dependencies:
   domain:
     path: ../domain
 
-  home_screen:
-    path: ../feature/home_screen
   auth:
     path: ../feature/auth
+  home_screen:
+    path: ../feature/home_screen
+  play_field_screen:
+    path: ../feature/play_field_screen
 
 dev_dependencies:
   flutter_lints: ^3.0.1

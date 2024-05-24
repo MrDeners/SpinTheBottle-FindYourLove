@@ -6,7 +6,8 @@ final InterceptorsWrapper dioLoggerInterceptor = InterceptorsWrapper(
   onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
     final String headers = options.headers.entries
         .map(
-            (MapEntry<String, dynamic> entry) => '${entry.key}: ${entry.value}')
+          (MapEntry<String, dynamic> entry) => '${entry.key}: ${entry.value}',
+        )
         .join('\n');
     AppLogger().debug(
       'NETWORK REQUEST: ${options.method} ${options.uri}\n'
@@ -15,8 +16,7 @@ final InterceptorsWrapper dioLoggerInterceptor = InterceptorsWrapper(
     );
     handler.next(options);
   },
-  onResponse:
-      (Response<dynamic> response, ResponseInterceptorHandler handler) async {
+  onResponse: (Response<dynamic> response, ResponseInterceptorHandler handler) async {
     if (response.data != null || response.data != <dynamic>[]) {
       AppLogger().info(
         'NETWORK RESPONSE [code ${response.statusCode}]:\n'

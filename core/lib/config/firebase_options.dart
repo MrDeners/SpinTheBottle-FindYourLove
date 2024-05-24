@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyC1X1nhHBxfIl7ysF08u4Qq99vVXGbbIdE',
-    appId: '1:881457933735:android:257c20fae972f8e9159a82',
-    messagingSenderId: '881457933735',
-    projectId: 'new-spin-the-bottle',
-    storageBucket: 'new-spin-the-bottle.appspot.com',
+    apiKey: 'AIzaSyDApZTOABpI-wEMlanGqw205LRZjb_FXgc',
+    appId: '1:732462398747:android:3f96561c633f5d738d67be',
+    messagingSenderId: '732462398747',
+    projectId: 'spin-the-bottle-find-your-love',
+    storageBucket: 'spin-the-bottle-find-your-love.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC3bQhx6popJbbDRWvLhWpD4sXLWfGW8wE',
-    appId: '1:881457933735:ios:14ca4e85d1843082159a82',
-    messagingSenderId: '881457933735',
-    projectId: 'new-spin-the-bottle',
-    storageBucket: 'new-spin-the-bottle.appspot.com',
+    apiKey: 'AIzaSyCeGAMDvc5Hurp_q7fV1iw9657McYHOXTk',
+    appId: '1:732462398747:ios:839a5701aca89ab38d67be',
+    messagingSenderId: '732462398747',
+    projectId: 'spin-the-bottle-find-your-love',
+    storageBucket: 'spin-the-bottle-find-your-love.appspot.com',
     iosBundleId: 'com.example.moodToday',
   );
+
 }

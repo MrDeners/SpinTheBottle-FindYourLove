@@ -64,16 +64,18 @@ class LightColorsTheme extends AppColorsTheme {
 
   @override
   Gradient get shadowBackgroundGradient => const LinearGradient(
-      colors: AppColors.shadowBackgroundGradient,
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      stops: <double>[0, 0.24, 0, 6, 1]);
+        colors: AppColors.shadowBackgroundGradient,
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        stops: <double>[0, 0.24, 0, 6, 1],
+      );
 
   @override
   Gradient get dailyGoalBackgroundGradient => const LinearGradient(
-      colors: AppColors.dailyGoalBackgroundGradient,
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight);
+        colors: AppColors.dailyGoalBackgroundGradient,
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      );
 
   @override
   ThemeExtension<AppColorsTheme> copyWith() {

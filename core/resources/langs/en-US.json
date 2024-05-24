@@ -5,7 +5,10 @@
     "search": "Search",
     "recentlyUsed": "Recently used",
     "selected": "Selected",
-    "clearAll": "Clear all"
+    "clearAll": "Clear all",
+    "play": "Play",
+    "profile": "Profile",
+    "settings": "Settings"
   },
   "authScreen": {
     "name": "Name",
@@ -20,6 +23,7 @@
     "email": "Email",
     "confirmPassword": "Confirm password",
     "signUp": "Sign Up",
+    "signUpSecondary" : "Sign up",
     "newPassword": "New password",
     "changePassword": "Change password",
     "successLogIn": "Success authorization"

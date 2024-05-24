@@ -16,6 +16,7 @@ class SignUpScreen extends StatelessWidget {
       create: (BuildContext context) => SignUpBloc(
         appRouter: appLocator.get<AppRouter>(),
         signUpUseCase: appLocator.get<SignUpUseCase>(),
+        writeUserToDbUseCase: appLocator.get<WriteUserToDbUseCase>(),
       ),
       child: const Scaffold(body: SignUpContent()),
     );

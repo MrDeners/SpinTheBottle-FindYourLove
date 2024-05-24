@@ -15,7 +15,7 @@ class ChangePasswordFormContent extends StatelessWidget {
       children: <Widget>[
         AppIcons.backArrow.call(onTap: () {
           context.read<ChangePasswordBloc>().add(const NavigateBackEvent());
-        }),
+        },),
         const Spacer(flex: 15),
         Text(
           LocaleKeys.authScreen_password.watchTr(context),

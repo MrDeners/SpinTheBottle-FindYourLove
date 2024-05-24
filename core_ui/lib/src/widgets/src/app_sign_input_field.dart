@@ -68,9 +68,10 @@ class _AppSignInputFieldState extends State<AppSignInputField> {
           color: context.theme.colors.primaryText,
         ),
         errorText: widget.error,
-        errorStyle: AppFonts.primary16.copyWith(
-          color: context.theme.colors.error,
+        errorStyle: AppFonts.primary12.copyWith(
+          color: context.theme.colors.background,
         ),
+        errorMaxLines: 2,
         suffixIcon: widget.isPassword
             ? Padding(
                 padding: const EdgeInsets.only(

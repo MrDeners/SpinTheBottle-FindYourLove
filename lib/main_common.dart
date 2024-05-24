@@ -4,6 +4,7 @@ import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:data/data.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:navigation/navigation.dart';
 
 Future<void> mainCommon(Flavor flavor) async {
@@ -15,14 +16,22 @@ Future<void> mainCommon(Flavor flavor) async {
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+    name: 'new-spin-the-bottle',
   );
 
-  runApp(EasyLocalization(
-    supportedLocales: AppLocalization.supportedLocales,
-    fallbackLocale: AppLocalization.fallbackLocale,
-    path: AppLocalization.langsFolderPath,
-    child: const App(),
-  ));
+  await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
+    DeviceOrientation.landscapeLeft,
+    DeviceOrientation.landscapeRight,
+  ]);
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: AppLocalization.supportedLocales,
+      fallbackLocale: AppLocalization.fallbackLocale,
+      path: AppLocalization.langsFolderPath,
+      child: const App(),
+    ),
+  );
 }
 
 Future<void> _setupDI(Flavor flavor) async {
@@ -43,6 +52,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
+    FirebaseAuth.instance.signOut();
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: lightTheme,

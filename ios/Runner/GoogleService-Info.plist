@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyC3bQhx6popJbbDRWvLhWpD4sXLWfGW8wE</string>
+	<string>AIzaSyCeGAMDvc5Hurp_q7fV1iw9657McYHOXTk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>881457933735</string>
+	<string>732462398747</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.moodToday</string>
 	<key>PROJECT_ID</key>
-	<string>new-spin-the-bottle</string>
+	<string>spin-the-bottle-find-your-love</string>
 	<key>STORAGE_BUCKET</key>
-	<string>new-spin-the-bottle.appspot.com</string>
+	<string>spin-the-bottle-find-your-love.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:881457933735:ios:14ca4e85d1843082159a82</string>
+	<string>1:732462398747:ios:839a5701aca89ab38d67be</string>
 </dict>
 </plist>

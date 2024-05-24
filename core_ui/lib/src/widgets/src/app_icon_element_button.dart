@@ -26,7 +26,7 @@ class AppIconElementButton extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            height: AppDimens.iconButtonHeight,
+            height: AppDimens.smallIconSize,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: isActive
@@ -42,9 +42,11 @@ class AppIconElementButton extends StatelessWidget {
               ),
             ),
           ),
-          Text(text,
-              style: AppFonts.primary14
-                  .copyWith(color: textColor ?? context.theme.colors.primaryText)),
+          Text(
+            text,
+            style:
+                AppFonts.primary14.copyWith(color: textColor ?? context.theme.colors.primaryText),
+          ),
         ],
       ),
     );

@@ -29,18 +29,17 @@ class AuthValidator {
     required String value,
   }) {
     return value.isEmpty
-    ? LocaleKeys.validators_passwordEmpty.tr()
+        ? LocaleKeys.validators_passwordEmpty.tr()
         : value.length <= 8
-    ? LocaleKeys.validators_passwordShort.tr()
-        : value.length >= 20
-    ? LocaleKeys.validators_passwordLong.tr()
-        : !RegExp(passwordCaseRegular).hasMatch(value)
-    ? LocaleKeys.validators_passwordCase.tr()
-        : !RegExp(passwordSpecialSymbolRegular).hasMatch(value)
-    ? LocaleKeys.validators_passwordSpecSymbols.tr()
-        : null;
+            ? LocaleKeys.validators_passwordShort.tr()
+            : value.length >= 20
+                ? LocaleKeys.validators_passwordLong.tr()
+                : !RegExp(passwordCaseRegular).hasMatch(value)
+                    ? LocaleKeys.validators_passwordCase.tr()
+                    : !RegExp(passwordSpecialSymbolRegular).hasMatch(value)
+                        ? LocaleKeys.validators_passwordSpecSymbols.tr()
+                        : null;
   }
-
 
   static String? confirmPasswordValidator({
     required String password,
@@ -49,8 +48,8 @@ class AuthValidator {
     return confirmPassword.isEmpty
         ? LocaleKeys.validators_passwordEmpty.tr()
         : password != confirmPassword
-        ? LocaleKeys.validators_passwordMismatch.tr()
-        : null;
+            ? LocaleKeys.validators_passwordMismatch.tr()
+            : null;
   }
 
   static Map<String, bool>? passwordRealTimeValidator({
@@ -59,7 +58,7 @@ class AuthValidator {
     final Map<String, bool> validity = <String, bool>{
       lengthMapKey: false,
       casesMapKey: false,
-      specialSymbolsMapKey: false
+      specialSymbolsMapKey: false,
     };
     if (value.isEmpty) {
       return null;

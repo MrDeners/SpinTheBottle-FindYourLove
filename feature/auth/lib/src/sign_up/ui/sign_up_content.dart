@@ -8,11 +8,16 @@ class SignUpContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppGradientWrapper(
-      child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal:AppDimens.contentPadding16),
-          child: SignUpForm(),
+    return AppImages.tableFullScreenBackground.callBackground(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      fit: BoxFit.cover,
+      child:const SafeArea(
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: AppDimens.contentPadding16),
+            child: SignUpForm(),
+          ),
         ),
       ),
     );

@@ -40,83 +40,86 @@ class _SignUpFormState extends State<SignUpForm> {
         }
       },
       builder: (BuildContext context, SignUpState state) {
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            AppIcons.backArrow.call(onTap: () {
-              context.read<SignUpBloc>().add(const NavigateBackEvent());
-            }),
-            const Spacer(flex: 15),
-            AppSignInputField(
-              title: LocaleKeys.authScreen_name.watchTr(context),
-              error: context.read<SignUpBloc>().state.validationErrors[AuthConstants.nameError],
-              controller: nameController,
-            ),
-            const Spacer(flex: 5),
-            AppSignInputField(
-              title: LocaleKeys.authScreen_email.watchTr(context),
-              error: context.read<SignUpBloc>().state.validationErrors[AuthConstants.emailError],
-              controller: emailController,
-            ),
-            const Spacer(flex: 5),
-            AppSignInputField(
-              title: LocaleKeys.authScreen_password.watchTr(context),
-              error: context.read<SignUpBloc>().state.validationErrors[AuthConstants.passwordError],
-              isPassword: true,
-              controller: passwordController,
-            ),
-            const Spacer(flex: 5),
-            AppSignInputField(
-              title: LocaleKeys.authScreen_confirmPassword.watchTr(context),
-              error: context
-                  .read<SignUpBloc>()
-                  .state
-                  .validationErrors[AuthConstants.confirmPasswordError],
-              isPassword: true,
-              controller: confirmPasswordController,
-            ),
-            const Spacer(flex: 2),
-            Text(
-              LocaleKeys.authScreen_availablePasswordSymbols.watchTr(context),
-              style: AppFonts.primary16.copyWith(
-                color: context.theme.colors.success,
+        return SizedBox(
+          width: MediaQuery.of(context).size.width * 0.7,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              AppIcons.backArrow.call(
+                onTap: () {
+                  context.read<SignUpBloc>().add(const NavigateBackEvent());
+                },
               ),
-            ),
-            Text(
-              LocaleKeys.authScreen_passwordLength.watchTr(context),
-              style: AppFonts.primary16.copyWith(
-                color: context.theme.colors.success,
+              Center(
+                child: Text(
+                  LocaleKeys.authScreen_signUp.watchTr(context),
+                  style: AppFonts.primary40,
+                ),
               ),
-            ),
-            Text(
-              LocaleKeys.authScreen_passwordLetterCases.watchTr(context),
-              style: AppFonts.primary16.copyWith(
-                color: context.theme.colors.success,
+              const Spacer(flex: 5),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.33,
+                    child: AppSignInputField(
+                      title: LocaleKeys.authScreen_name.watchTr(context),
+                      error: state.validationErrors[AuthConstants.nameError],
+                      controller: nameController,
+                    ),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.33,
+                    child: AppSignInputField(
+                      title: LocaleKeys.authScreen_email.watchTr(context),
+                      error: state.validationErrors[AuthConstants.emailError],
+                      controller: emailController,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Text(
-              LocaleKeys.authScreen_specialPasswordSymbols.watchTr(context),
-              style: AppFonts.primary16.copyWith(
-                color: context.theme.colors.success,
+              const Spacer(),
+              Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.33,
+                    child: AppSignInputField(
+                      title: LocaleKeys.authScreen_password.watchTr(context),
+                      error: state.validationErrors[AuthConstants.passwordError],
+                      isPassword: true,
+                      controller: passwordController,
+                    ),
+                  ),
+                  const Spacer(),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.33,
+                    child: AppSignInputField(
+                      title: LocaleKeys.authScreen_confirmPassword.watchTr(context),
+                      error: state.validationErrors[AuthConstants.confirmPasswordError],
+                      isPassword: true,
+                      controller: confirmPasswordController,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            const Spacer(flex: 5),
-            AppButton(
-              text: LocaleKeys.authScreen_signUp.watchTr(context),
-              onTap: () {
-                context.read<SignUpBloc>().add(
-                      SignUp(
-                        name: nameController.text,
-                        email: emailController.text,
-                        password: passwordController.text,
-                        confirmPassword: confirmPasswordController.text,
-                      ),
-                    );
-              },
-            ),
-            const Spacer(flex: 30),
-          ],
+              const Spacer(flex: 5),
+              AppButton(
+                text: LocaleKeys.authScreen_signUpSecondary.watchTr(context),
+                onTap: () {
+                  context.read<SignUpBloc>().add(
+                        SignUp(
+                          name: nameController.text,
+                          email: emailController.text,
+                          password: passwordController.text,
+                          confirmPassword: confirmPasswordController.text,
+                        ),
+                      );
+                },
+              ),
+              const Spacer(flex: 5),
+            ],
+          ),
         );
       },
     );
