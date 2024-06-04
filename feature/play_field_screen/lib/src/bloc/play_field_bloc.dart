@@ -10,18 +10,11 @@ part 'play_field_state.dart';
 class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
   final AppRouter _appRouter;
   final GetUsersOnTableUseCase _getUsersOnTableUseCase;
-  final GetUserFromDbByIdUseCase _getUserFromDbByIdUseCase;
-  final SessionCheckUseCase _sessionCheckUseCase;
-
   PlayFieldBloc({
     required AppRouter appRouter,
     required GetUsersOnTableUseCase getUsersOnTableUseCase,
-    required GetUserFromDbByIdUseCase getUserFromDbByIdUseCase,
-    required SessionCheckUseCase sessionCheckUseCase,
   })  : _appRouter = appRouter,
         _getUsersOnTableUseCase = getUsersOnTableUseCase,
-        _getUserFromDbByIdUseCase = getUserFromDbByIdUseCase,
-        _sessionCheckUseCase = sessionCheckUseCase,
         super(const PlayFieldState()) {
     on<UpdateTablePlayersEvent>(_onUpdateTablePlayers);
     on<EnterToPlayFieldEvent>(_onEnterToPlayField);

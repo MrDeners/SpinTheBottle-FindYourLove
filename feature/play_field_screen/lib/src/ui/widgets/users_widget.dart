@@ -57,7 +57,7 @@ class UsersWidget extends StatelessWidget {
                       width: AppDimens.userTableCardSize,
                       height: AppDimens.userTableCardSize,
                     ),
-            )
+            ),
           ],
         ),
         Padding(

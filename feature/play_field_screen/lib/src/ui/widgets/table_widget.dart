@@ -13,9 +13,10 @@ class TableWidget extends StatelessWidget {
         right: false,
         child: Padding(
           padding: EdgeInsets.only(
-              top: AppDimens.contentPadding16,
-              bottom: AppDimens.contentPadding16,
-              right: AppDimens.contentPadding16),
+            top: AppDimens.contentPadding16,
+            bottom: AppDimens.contentPadding16,
+            right: AppDimens.contentPadding16,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[

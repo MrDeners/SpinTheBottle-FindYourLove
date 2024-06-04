@@ -1,8 +1,6 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 
-import '../../domain.dart';
-
 part 'user_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)

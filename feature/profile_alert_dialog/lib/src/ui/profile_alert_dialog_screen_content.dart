@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import '../bloc/profile_alert_dialog_bloc.dart';
-import 'widgets/widgets.dart';
 
 class ProfileAlertDialogContent extends StatelessWidget {
   const ProfileAlertDialogContent({Key? key}) : super(key: key);
@@ -61,9 +60,7 @@ class ProfileAlertDialogContent extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Column(
-                    children: <Widget>[],
-                  ),
+                  const Spacer(),
                   Column(
                     children: <Widget>[
                       AppIcons.close.call(
@@ -78,6 +75,5 @@ class ProfileAlertDialogContent extends StatelessWidget {
         );
       },
     );
-    ;
   }
 }

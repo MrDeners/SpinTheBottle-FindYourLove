@@ -6,7 +6,6 @@ import 'package:profile_alert_dialog/profile_alert_dialog.dart';
 import 'package:profile_screen/profile_screen.dart';
 import 'package:setting_screen/setting_screen.dart';
 
-
 part 'app_router.gr.dart';
 
 @AutoRouterConfig(
@@ -16,7 +15,7 @@ part 'app_router.gr.dart';
     PlayFieldScreenModule,
     ProfileScreenModule,
     ProfileAlertDialogModule,
-    SettingScreenModule
+    SettingScreenModule,
   ],
   replaceInRouteName: 'Form,Screen,Route',
 )
