@@ -52,19 +52,11 @@
     "confirmPasswordEmpty": "Поле подтверждения пароля не заполнено",
     "invalidCredential" : "Неверные данные учетной записи"
   },
-  "noteProcessing": {
-    "chooseEmotions": "Выберите эмоции, которые вы испытываете",
-    "selectEmotions": "Выберите хотя бы 1 эмоцию",
-    "chooseReasons": "Что приводит вам к той или иной эмоции?",
-    "selectReasons": "Выберите причины, вызвавшие эмоции",
-    "addComment": "Добавьте любую важную информацию",
-    "selectComment": "Добавьте заметки о любом событии, вызвавшем эмоцию",
-    "moodNow": "Как вы сейчас себя чувствуете?",
-    "selectMood": "Выберите эмоцию, которая вам похожа на то, что вы сейчас чувствуете.",
-    "searchEmotions": "Найди эмоции",
-    "searchReasons": "Найди и добавь причины",
-    "allEmotions": "Все эмоции",
-    "allReasons": "Все причины",
-    "skipAndSave": "Пропустить и Cохранить"
+  "playFieldScreen": {
+    "table": "Table"
+  },
+  "settingScreen": {
+    "setting": "Настройки",
+    "language": "Язык"
   }
 }

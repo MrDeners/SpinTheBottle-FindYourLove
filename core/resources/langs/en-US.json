@@ -52,19 +52,11 @@
     "invalidCredential": "Invalid credential",
     "confirmPasswordEmpty": "Confirm password field is empty"
   },
-  "noteProcessing": {
-    "chooseEmotions": "Choose the emotions that make you feel neutral",
-    "selectEmotions": "Select at least 1 emotion",
-    "chooseReasons": "What’s reason making you feel this way?",
-    "selectReasons": "Select reasons that reflated your emotions",
-    "addComment": "Any thing you want to add",
-    "selectComment": "Add your notes on any thought that reflating your mood",
-    "moodNow": "What’s your mood now?",
-    "selectMood": "Select mood that reflects the most how you are feeling at this moment.",
-    "searchEmotions": "Search emotions",
-    "searchReasons": "Search & add reasons",
-    "allEmotions": "All emotions",
-    "allReasons": "All reasons",
-    "skipAndSave": "Skip and Save"
+  "playFieldScreen": {
+    "table": "Table"
+  },
+  "settingScreen": {
+    "setting": "Setting",
+    "language": "Language"
   }
 }

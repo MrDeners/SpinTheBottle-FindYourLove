@@ -7,8 +7,8 @@ import 'package:flutter/widgets.dart';
 import '../bloc/home_bloc.dart';
 import 'widgets/widgets.dart';
 
-class SignInContent extends StatelessWidget {
-  const SignInContent({Key? key}) : super(key: key);
+class HomeScreenContent extends StatelessWidget {
+  const HomeScreenContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class SignInContent extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   HeartsCounter(
-                    heartsAmount: context.read<HomeBloc>().state.user.heartsAmount,
+                    heartsAmount: context.watch<HomeBloc>().state.user.heartsAmount,
                   ),
                   AppImages.naming.call(),
                   const SizedBox(

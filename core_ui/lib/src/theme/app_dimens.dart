@@ -1,6 +1,9 @@
 part of core_ui;
 
 class AppDimens {
+  static const double contentPadding60 = 60.0;
+  static const double contentPadding40 = 40.0;
+  static const double contentPadding30 = 30.0;
   static const double contentPadding26 = 26.0;
 
   static const double contentPadding20 = 20.0;
@@ -30,6 +33,8 @@ class AppDimens {
   static const double formTopPadding = 64.0;
 
   static const double buttonBorderRadius = 30.0;
+
+  static const double mainBorderRadius = 40.0;
 
   static const double buttonBorderWidth = 2.0;
 

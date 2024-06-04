@@ -90,8 +90,16 @@ class DataDI {
       );
     });
 
+    appLocator.registerLazySingleton<GetUserFromDbByIdUseCase>(
+      () {
+        return GetUserFromDbByIdUseCase(
+          dbRepository: appLocator<DbRepository>(),
+        );
+      },
+    );
+
     appLocator.registerLazySingleton<WriteUserToDbUseCase>(
-          () {
+      () {
         return WriteUserToDbUseCase(
           dbRepository: appLocator<DbRepository>(),
         );

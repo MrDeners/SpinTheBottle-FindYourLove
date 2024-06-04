@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 
@@ -12,11 +13,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeBloc>(
+      lazy: false,
       create: (BuildContext context) => HomeBloc(
         appRouter: appLocator.get<AppRouter>(),
+        getUserFromDbByIdUseCase: appLocator.get<GetUserFromDbByIdUseCase>(),
+        sessionCheckUseCase: appLocator.get<SessionCheckUseCase>(),
       ),
       child: const Scaffold(
-        body: SignInContent(),
+        body: HomeScreenContent(),
       ),
     );
   }

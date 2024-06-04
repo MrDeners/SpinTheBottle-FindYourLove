@@ -23,6 +23,12 @@ dependencies:
     path: ../feature/home_screen
   play_field_screen:
     path: ../feature/play_field_screen
+  profile_screen:
+    path: ../feature/profile_screen
+  profile_alert_dialog:
+    path: ../feature/profile_alert_dialog
+  setting_screen:
+    path: ../feature/setting_screen
 
 dev_dependencies:
   flutter_lints: ^3.0.1

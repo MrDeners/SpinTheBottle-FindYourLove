@@ -14,11 +14,12 @@ class PlayFieldScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider<PlayFieldBloc>(
       lazy: false,
-      create: (BuildContext context) =>
-          PlayFieldBloc(
-            appRouter: appLocator.get<AppRouter>(),
-            getUsersOnTableUseCase: appLocator.get<GetUsersOnTableUseCase>(),
-          ),
+      create: (BuildContext context) => PlayFieldBloc(
+        appRouter: appLocator.get<AppRouter>(),
+        getUsersOnTableUseCase: appLocator.get<GetUsersOnTableUseCase>(),
+        getUserFromDbByIdUseCase: appLocator.get<GetUserFromDbByIdUseCase>(),
+        sessionCheckUseCase: appLocator.get<SessionCheckUseCase>(),
+      ),
       child: Scaffold(
         body: BlocBuilder<PlayFieldBloc, PlayFieldState>(
           builder: (BuildContext context, PlayFieldState state) {

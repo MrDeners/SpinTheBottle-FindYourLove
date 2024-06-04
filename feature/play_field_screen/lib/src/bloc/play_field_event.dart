@@ -8,3 +8,11 @@ abstract class PlayFieldEvent {
 class UpdateTablePlayersEvent extends PlayFieldEvent {
   const UpdateTablePlayersEvent();
 }
+
+class EnterToPlayFieldEvent extends PlayFieldEvent {
+  const EnterToPlayFieldEvent();
+}
+
+class NavigateBackEvent extends PlayFieldEvent {
+  const NavigateBackEvent();
+}

@@ -11,7 +11,7 @@ class DbMapper {
   static const String descriptionKey = 'description';
   static const String dateOfCreationKey = 'dateOfCreation';
 
-  static Map<String, dynamic> noteToMap(UserEntity user) {
+  static Map<String, dynamic> userToMap(UserEntity user) {
     return user.toJson();
   }
 }

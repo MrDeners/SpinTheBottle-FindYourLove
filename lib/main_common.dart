@@ -52,7 +52,7 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    FirebaseAuth.instance.signOut();
+    //FirebaseAuth.instance.signOut();
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       theme: lightTheme,

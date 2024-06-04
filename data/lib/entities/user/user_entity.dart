@@ -11,7 +11,6 @@ class UserEntity {
   final String? secondName;
   final int? age;
   final int heartsAmount;
-  @JsonKey(fromJson: AppImage.fromJson)
   final AppImage avatar;
   final AppImage border;
   final List<String> availableBordersId;
