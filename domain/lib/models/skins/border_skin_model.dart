@@ -1,11 +1,13 @@
 import 'package:core_ui/core_ui.dart';
 
-class TableSkinModel {
+class BorderSkinModel {
   final String id;
+  final String name;
   final AppImage skin;
 
-  const TableSkinModel({
+  const BorderSkinModel({
     required this.id,
+    required this.name,
     required this.skin,
   });
 }

@@ -10,7 +10,9 @@ class DbRepositoryImpl implements DbRepository {
   static const String idKey = 'id';
   final FirebaseDbProvider _dbProvider;
 
-  const DbRepositoryImpl({required FirebaseDbProvider dbProvider}) : _dbProvider = dbProvider;
+  const DbRepositoryImpl({
+    required FirebaseDbProvider dbProvider,
+  }) : _dbProvider = dbProvider;
 
   @override
   Future<void> writeUser(UserModel data) async {

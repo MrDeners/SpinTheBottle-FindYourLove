@@ -11,15 +11,15 @@ class TableModel {
   const TableModel({
     this.id = 'user',
     this.users = const <UserModel>[],
-    this.tableSkin = const TableSkinModel(id: '0', skin: AppImages.mainTableSkin),
-    this.bottleSkin = const BottleSkinModel(id: '0', skin: AppIcons.mainBottleSkin),
+    this.tableSkin = const TableSkinModel(id: '0', skin: AppImages.mainTableSkin, price: 0, name: 'Default'),
+    this.bottleSkin = const BottleSkinModel(id: '0', skin: AppIcons.mainBottleSkin, price: 0, name: 'Default'),
     this.currentUserId = '',
   });
 
   const TableModel.empty()
       : id = '',
         users = const <UserModel>[],
-        tableSkin = const TableSkinModel(id: '0', skin: AppImages.mainTableSkin),
-        bottleSkin = const BottleSkinModel(id: '0', skin: AppIcons.mainBottleSkin),
+        tableSkin = const TableSkinModel(id: '0', skin: AppImages.mainTableSkin, price: 0, name: 'Default'),
+        bottleSkin = const BottleSkinModel(id: '0', skin: AppIcons.mainBottleSkin, price: 0, name: 'Default'),
         currentUserId = '';
 }

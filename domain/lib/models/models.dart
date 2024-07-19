@@ -1,6 +1,9 @@
-export 'bottle_skin_model.dart';
+export 'chat/chat_model.dart';
+export 'chat/message_model.dart';
+export 'skins/bottle_skin_model.dart';
+export 'skins/role_model.dart';
+export 'skins/table_skin_model.dart';
 export 'table_model.dart';
-export 'table_skin_model.dart';
 export 'toast/toast_models.dart';
 export 'user/auth/auth_models.dart';
 export 'user/user_model.dart';

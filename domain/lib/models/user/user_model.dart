@@ -9,6 +9,7 @@ class UserModel {
   final String role;
   final String firstName;
   final String? secondName;
+  final String? gender;
   final int? age;
   final int heartsAmount;
   final double kissesAmount;
@@ -24,6 +25,7 @@ class UserModel {
     this.role = '',
     this.firstName = '',
     this.secondName = '',
+    this.gender = 'M',
     this.age = 0,
     this.heartsAmount = 0,
     this.kissesAmount = 0,
@@ -40,6 +42,7 @@ class UserModel {
         role = '',
         firstName = '',
         secondName = null,
+        gender = 'M',
         age = null,
         heartsAmount = 0,
         kissesAmount = 0,

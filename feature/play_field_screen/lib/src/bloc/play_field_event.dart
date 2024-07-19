@@ -16,3 +16,7 @@ class EnterToPlayFieldEvent extends PlayFieldEvent {
 class NavigateBackEvent extends PlayFieldEvent {
   const NavigateBackEvent();
 }
+
+class ClosePlayFieldEvent extends PlayFieldEvent {
+  const ClosePlayFieldEvent();
+}

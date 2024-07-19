@@ -17,6 +17,9 @@ class PlayFieldScreen extends StatelessWidget {
       create: (BuildContext context) => PlayFieldBloc(
         appRouter: appLocator.get<AppRouter>(),
         getUsersOnTableUseCase: appLocator.get<GetUsersOnTableUseCase>(),
+        getTableIdByUserDataUseCase: appLocator.get<GetTableIdByUserDataUseCase>(),
+        webSocketConnectUseCase: appLocator.get<WebSocketConnectUseCase>(),
+        webSocketDisconnectUseCase: appLocator.get<WebSocketDisconnectUseCase>(),
       ),
       child: Scaffold(
         body: BlocBuilder<PlayFieldBloc, PlayFieldState>(

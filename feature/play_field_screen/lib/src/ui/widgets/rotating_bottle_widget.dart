@@ -1,16 +1,17 @@
 import 'dart:math';
 
+import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:domain/models/user/user_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class RotatingBottleWidget extends StatefulWidget {
-  final int stopPosition;
+import '../../bloc/play_field_bloc.dart';
 
+class RotatingBottleWidget extends StatefulWidget {
   const RotatingBottleWidget({
     super.key,
-    required this.stopPosition,
   });
 
   @override
@@ -23,6 +24,7 @@ class _RotatingBottleWidgetState extends State<RotatingBottleWidget>
   late Animation<double> _animation;
 
   final Map<int, List<double>> usersIntervals = const <int, List<double>>{
+    // TODO: check is it's correct
     0: <double>[0.0000, 0.0833],
     4: <double>[0.0834, 0.1667],
     6: <double>[0.1668, 0.2501],
@@ -70,7 +72,17 @@ class _RotatingBottleWidgetState extends State<RotatingBottleWidget>
           setState(() {
             _animation = Tween<double>(
               begin: 0.0,
-              end: 9 + getRandomPosition(usersIntervals[widget.stopPosition]!),
+              end: 9 +
+                  getRandomPosition(
+                    usersIntervals[getRandomUser(
+                      context
+                          .read<PlayFieldBloc>()
+                          .state
+                          .users
+                          .where((UserModel? element) => element != null)
+                          .length,
+                    )]!,
+                  ),
             ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
           });
           _controller.forward();
@@ -83,5 +95,9 @@ class _RotatingBottleWidgetState extends State<RotatingBottleWidget>
     return (Random().nextDouble() * (limits[1] - limits[0]) + limits[0]) <= 1
         ? Random().nextDouble() * (limits[1] - limits[0]) + limits[0]
         : (Random().nextDouble() * (limits[1] - limits[0]) + limits[0]) - 1;
+  }
+
+  int getRandomUser(int amountUsers) {
+    return Random().nextInt(amountUsers);
   }
 }

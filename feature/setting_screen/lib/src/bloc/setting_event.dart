@@ -8,3 +8,7 @@ abstract class SettingEvent {
 class ChangeLocaleEvent extends SettingEvent {
   const ChangeLocaleEvent();
 }
+
+class NavigateBackEvent extends SettingEvent {
+  const NavigateBackEvent();
+}

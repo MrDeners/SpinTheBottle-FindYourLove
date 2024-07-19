@@ -33,9 +33,7 @@ class TableWidget extends StatelessWidget {
                   children: <Widget>[
                     Center(child: UsersWidget()),
                     Center(
-                      child: RotatingBottleWidget(
-                        stopPosition: 0,
-                      ),
+                      child: RotatingBottleWidget(),
                     ),
                   ],
                 ),
@@ -54,3 +52,4 @@ class TableWidget extends StatelessWidget {
     );
   }
 }
+
