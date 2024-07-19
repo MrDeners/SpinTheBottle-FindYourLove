@@ -7,10 +7,10 @@ import '../bloc/profile_alert_dialog_bloc.dart';
 import 'profile_alert_dialog_screen_content.dart';
 
 @RoutePage()
-class ProfileAlertDialogScreen extends StatelessWidget {
+class ProfileAlertDialog extends StatelessWidget {
   final UserModel? user;
 
-  const ProfileAlertDialogScreen({
+  const ProfileAlertDialog({
     super.key,
     required this.user,
   });
@@ -24,7 +24,9 @@ class ProfileAlertDialogScreen extends StatelessWidget {
           user: user,
         );
       },
-      child:  const ProfileAlertDialogContent(),
+      child: const Scaffold(
+        body: ProfileAlertContent(),
+      ),
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:domain/models/user/user_model.dart';
 import 'package:flutter/material.dart';
-import 'package:profile_alert_dialog/src/ui/profile_alert_dialog_screen.dart';
 
 import '../../bloc/play_field_bloc.dart';
 
@@ -48,6 +47,7 @@ class TableRightButtonsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserModel user = context.watch<PlayFieldBloc>().state.currentUser;
+
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.85,
       child: Column(
@@ -55,12 +55,7 @@ class TableRightButtonsWidget extends StatelessWidget {
         children: <Widget>[
           AppIcons.primaryUserProfile(
             size: AppDimens.mediumIconSize,
-            onTap: () => showDialog(
-              context: context,
-              builder: (BuildContext context) => ProfileAlertDialogScreen(
-                user: user,
-              ),
-            ),
+            onTap: () => context.read<PlayFieldBloc>().add(NavigateUserProfileEvent(user: user)),
           ),
           AppIcons.music(size: AppDimens.mediumIconSize),
         ],

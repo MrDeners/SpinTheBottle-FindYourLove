@@ -19,6 +19,7 @@ part 'app_router.gr.dart';
   ],
   replaceInRouteName: 'Form,Screen,Route',
 )
+
 class AppRouter extends _$AppRouter {
   @override
   RouteType get defaultRouteType => const RouteType.material();

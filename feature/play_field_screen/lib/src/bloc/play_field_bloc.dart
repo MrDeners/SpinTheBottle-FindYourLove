@@ -29,6 +29,7 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
     on<UpdateTablePlayersEvent>(_onUpdateTablePlayers);
     on<EnterToPlayFieldEvent>(_onEnterToPlayField);
     on<NavigateBackEvent>(_onNavigateBack);
+    on<NavigateUserProfileEvent>(_onNavigateUserProfile);
     on<ClosePlayFieldEvent>(_onClosePlayField);
 
     add(const EnterToPlayFieldEvent());
@@ -85,5 +86,14 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
     add(const ClosePlayFieldEvent());
 
     await _appRouter.maybePop();
+  }
+
+  Future<void> _onNavigateUserProfile(
+    NavigateUserProfileEvent event,
+    Emitter<PlayFieldState> emit,
+  ) async {
+    await _appRouter.push(
+      ProfileAlertDialogRoute(user: event.user),
+    );
   }
 }

@@ -6,8 +6,8 @@ import 'package:flutter/widgets.dart';
 
 import '../bloc/profile_alert_dialog_bloc.dart';
 
-class ProfileAlertDialogContent extends StatelessWidget {
-  const ProfileAlertDialogContent({Key? key}) : super(key: key);
+class ProfileAlertContent extends StatelessWidget {
+  const ProfileAlertContent({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
