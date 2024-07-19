@@ -25,6 +25,17 @@ class DbRepositoryImpl implements DbRepository {
   }
 
   @override
+  Future<void> updateUserData(UserModel data) async {
+    await _dbProvider.update(
+      DbMapper.userToMap(
+        UserMapper.toEntity(data)!,
+      ),
+      usersKey,
+      data.id,
+    );
+  }
+
+  @override
   Future<UserModel> getUserById(String id) async {
     final List<Map<String, dynamic>> users = await _dbProvider.getByFilter(usersKey, idKey, id);
     return UserMapper.toModel(UserEntity.fromJson(users.first))!;

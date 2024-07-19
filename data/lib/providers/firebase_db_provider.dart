@@ -4,8 +4,11 @@ class FirebaseDbProvider {
   Future<void> write(Map<String, dynamic> data, String collectionName) async {
     await FirebaseFirestore.instance.collection(collectionName).add(data);
   }
+  Future<void> update(Map<String, dynamic> data, String collectionName, String documentId) async {
+    await FirebaseFirestore.instance.collection(collectionName).doc(documentId).update(data);
+  }
 
-  Future<QuerySnapshot<Map<String, dynamic>>> readAll(String collectionName) async {
+  Future<QuerySnapshot<Map<String, dynamic>>> getAll(String collectionName) async {
     return FirebaseFirestore.instance.collection(collectionName).get();
   }
 

@@ -57,14 +57,14 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
       ),
     );
 
-    final String tableId = await _getTableIdByUserDataUseCase.execute(user);
+    //final String tableId = await _getTableIdByUserDataUseCase.execute(user);
     //TODO: get url with tableID
-    final WebSocketChannel webSocketChannel = await _webSocketConnectUseCase.execute('tableId');
+    //final WebSocketChannel webSocketChannel = await _webSocketConnectUseCase.execute(tableId);
 
     emit(
       state.copyWith(
         currentUser: user,
-        webSocketChannel: webSocketChannel,
+        //webSocketChannel: webSocketChannel,
       ),
     );
 

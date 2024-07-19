@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 
@@ -14,6 +15,7 @@ class ProfileScreen extends StatelessWidget {
     return BlocProvider<ProfileBloc>(
       create: (BuildContext context) => ProfileBloc(
         appRouter: appLocator.get<AppRouter>(),
+        updateUserDataOnDbUseCase: appLocator.get<UpdateUserDataOnDbUseCase>(),
       ),
       child: const Scaffold(
         body: ProfileContent(),

@@ -1,5 +1,4 @@
 import 'package:core/core.dart';
-import 'package:core_ui/core_ui.dart';
 import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
@@ -25,11 +24,7 @@ class ProfileAlertDialogScreen extends StatelessWidget {
           user: user,
         );
       },
-      // TODO: remove Scaffold when I create a ProfileScreen
-      child:  Scaffold(
-        backgroundColor: context.theme.colors.transparent,
-        body: const ProfileAlertDialogContent(),
-      ),
+      child:  const ProfileAlertDialogContent(),
     );
   }
 }

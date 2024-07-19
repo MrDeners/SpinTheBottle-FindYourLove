@@ -11,6 +11,7 @@ class GetUsersOnTableUseCase implements FutureUseCase<NoParams, List<UserModel?>
   @override
   Future<List<UserModel?>> execute([NoParams? noParams]) async {
     final List<UserModel?> users = await _apiRepository.getUsersOnTable();
+
     return users;
   }
 }

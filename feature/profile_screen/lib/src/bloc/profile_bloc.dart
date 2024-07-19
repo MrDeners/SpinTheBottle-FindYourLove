@@ -4,48 +4,63 @@ import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 
 part 'profile_event.dart';
+
 part 'profile_state.dart';
 
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   final AppRouter _appRouter;
+  final UpdateUserDataOnDbUseCase _updateUserDataOnDbUseCase;
 
   ProfileBloc({
     required AppRouter appRouter,
+    required UpdateUserDataOnDbUseCase updateUserDataOnDbUseCase,
   })  : _appRouter = appRouter,
+        _updateUserDataOnDbUseCase = updateUserDataOnDbUseCase,
         super(const ProfileState()) {
     on<LoadScreenEvent>(_onLoadScreen);
-    on<NavigateToPlayFieldEvent>(_onNavigateToPlayField);
-    on<NavigateToProfileEvent>(_onNavigateToProfile);
-    on<NavigateToSettingsEvent>(_onNavigateToSettings);
+    on<NavigateBackEvent>(_onNavigateBack);
+    on<SaveChangesEvent>(_onSaveChanges);
 
+    add(const LoadScreenEvent());
   }
 
   Future<void> _onLoadScreen(
-      LoadScreenEvent event,
-      Emitter<ProfileState> emit,
-      ) async {
-    //final UserModel user = await ;
-    // TODO : Get data from BD
+    LoadScreenEvent event,
+    Emitter<ProfileState> emit,
+  ) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final UserModel user = UserModel.fromJson(
+      jsonDecode(
+        prefs.getString('user')!,
+      ),
+    );
+
+    emit(
+      state.copyWith(
+        user: user,
+      ),
+    );
   }
 
-  Future<void> _onNavigateToPlayField(
-      NavigateToPlayFieldEvent event,
-      Emitter<ProfileState> emit,
-      ) async {
-    await _appRouter.push(const PlayFieldRoute());
+  Future<void> _onSaveChanges(
+    SaveChangesEvent event,
+    Emitter<ProfileState> emit,
+  ) async {
+    await _updateUserDataOnDbUseCase.execute(state.newUser);
+
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('user', jsonEncode(state.newUser));
   }
 
-  Future<void> _onNavigateToProfile(
-      NavigateToProfileEvent event,
-      Emitter<ProfileState> emit,
-      ) async {
-    // await appLocator.get<AppRouter>().push(ProfileRoute());
-  }
+  Future<void> _onNavigateBack(
+    NavigateBackEvent event,
+    Emitter<ProfileState> emit,
+  ) async {
+    if (state.user != state.newUser && state.newUser != const UserModel.empty()) {
+      add(const SaveChangesEvent());
+    }
 
-  Future<void> _onNavigateToSettings(
-      NavigateToSettingsEvent event,
-      Emitter<ProfileState> emit,
-      ) async {
-    // await appLocator.get<AppRouter>().push(SettingsRoute());
+    await _appRouter.maybePop();
   }
 }

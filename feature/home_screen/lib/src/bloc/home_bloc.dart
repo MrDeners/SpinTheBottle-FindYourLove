@@ -58,7 +58,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     NavigateToProfileEvent event,
     Emitter<HomeState> emit,
   ) async {
-    await _appRouter.push(ProfileAlertDialogRoute(user: state.user));
+    await _appRouter.push(const ProfileRoute());
   }
 
   Future<void> _onNavigateToSettings(

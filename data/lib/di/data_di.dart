@@ -129,5 +129,13 @@ class DataDI {
         );
       },
     );
+
+    appLocator.registerLazySingleton<UpdateUserDataOnDbUseCase>(
+      () {
+        return UpdateUserDataOnDbUseCase(
+          dbRepository: appLocator<DbRepository>(),
+        );
+      },
+    );
   }
 }
