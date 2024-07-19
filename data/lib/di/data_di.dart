@@ -79,6 +79,30 @@ class DataDI {
         );
       },
     );
+
+    appLocator.registerLazySingleton<GetTableIdByUserDataUseCase>(
+      () {
+        return GetTableIdByUserDataUseCase(
+          apiRepository: appLocator<ApiRepository>(),
+        );
+      },
+    );
+
+    appLocator.registerLazySingleton<WebSocketConnectUseCase>(
+          () {
+        return WebSocketConnectUseCase(
+          apiRepository: appLocator<ApiRepository>(),
+        );
+      },
+    );
+
+    appLocator.registerLazySingleton<WebSocketDisconnectUseCase>(
+          () {
+        return WebSocketDisconnectUseCase(
+          apiRepository: appLocator<ApiRepository>(),
+        );
+      },
+    );
   }
 
   void _initDbServiceDependencies() {

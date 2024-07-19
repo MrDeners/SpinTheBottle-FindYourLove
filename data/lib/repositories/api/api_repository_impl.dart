@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:domain/domain.dart';
 
 import '../../entities/user/user_entity.dart';
@@ -27,5 +28,26 @@ class ApiRepositoryImpl implements ApiRepository {
   @override
   Future<void> saveTableChanges() async {
     await _apiProvider.saveTableChanges();
+  }
+
+
+  @override
+  Future<WebSocketChannel> webSocketConnect(String url) async {
+    final Uri uri = Uri.parse(url);
+    final WebSocketChannel chanel = WebSocketChannel.connect(uri);
+
+    return chanel;
+  }
+
+  @override
+  Future<void> webSocketDisconnect(WebSocketChannel chanel) async {
+    await chanel.sink.close();
+  }
+
+  @override
+  Future<String> getTableIdByUserData(UserModel user) async {
+    final String tableId = await _apiProvider.getTableIdByUserData(user);
+
+    return tableId;
   }
 }
