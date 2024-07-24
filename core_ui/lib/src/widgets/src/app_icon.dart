@@ -1,8 +1,12 @@
+import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../core_ui.dart';
 
+part 'app_icon.g.dart';
+
+@JsonSerializable()
 class AppIcon {
   static const String _svgFileRegex = r'.svg$';
 
@@ -45,4 +49,9 @@ class AppIcon {
       ),
     );
   }
+
+  factory AppIcon.fromJson(Map<String, dynamic> json) => _$AppIconFromJson(json);
+  Map<String, dynamic> toJson() => _$AppIconToJson(this);
+
+  static Map<String, dynamic> toJsonKey(AppIcon icon) => _$AppIconToJson(icon);
 }

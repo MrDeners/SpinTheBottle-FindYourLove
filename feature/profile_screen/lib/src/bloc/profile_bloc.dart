@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:domain/domain.dart';
-import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 
 part 'profile_event.dart';
@@ -57,7 +56,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     NavigateBackEvent event,
     Emitter<ProfileState> emit,
   ) async {
-    if (state.user != state.newUser && state.newUser != const UserModel.empty()) {
+    if (state.user != state.newUser && state.newUser != const UserModel()) {
       add(const SaveChangesEvent());
     }
 

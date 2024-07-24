@@ -1,11 +1,22 @@
-import 'package:core_ui/core_ui.dart';
+import 'package:core/core.dart';
+import '../../domain.dart';
 
-class ToastModel {
-  final String message;
-  final ToastType type;
+part 'toast_model.freezed.dart';
+part 'toast_model.g.dart';
 
-  const ToastModel({
-    required this.message,
-    required this.type,
-  });
+@freezed
+class ToastModel with _$ToastModel {
+  @JsonSerializable(explicitToJson: true)
+  const factory ToastModel({
+    @Default('') String message,
+    @Default(ToastType.notification) ToastType type,
+  }) = _ToastModel;
+
+  const ToastModel._();
+
+  factory ToastModel.fromJson(Map<String, dynamic> json) => _$ToastModelFromJson(json);
+
 }
+
+
+

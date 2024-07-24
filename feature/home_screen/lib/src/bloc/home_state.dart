@@ -5,7 +5,7 @@ class HomeState {
   final UserModel user;
 
   const HomeState({
-    this.user = const UserModel.empty(),
+    this.user = const UserModel(),
   });
 
   HomeState copyWith({

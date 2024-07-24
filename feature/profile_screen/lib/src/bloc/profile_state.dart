@@ -6,8 +6,8 @@ class ProfileState {
   final UserModel newUser;
 
   const ProfileState({
-    this.user = const UserModel.empty(),
-    this.newUser = const UserModel.empty(),
+    this.user = const UserModel(),
+    this.newUser = const UserModel(),
   });
 
   ProfileState copyWith({

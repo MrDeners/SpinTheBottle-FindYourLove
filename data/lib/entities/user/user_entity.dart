@@ -1,55 +1,31 @@
 import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
+import 'package:domain/domain.dart';
 
+part 'user_entity.freezed.dart';
 part 'user_entity.g.dart';
 
-@JsonSerializable(explicitToJson: true)
-class UserEntity {
-  final String id;
-  final String role;
-  final String firstName;
-  final String? secondName;
-  final int? age;
-  final int heartsAmount;
-  final AppImage avatar;
-  final AppImage border;
-  final List<String> availableBordersId;
-  final List<String> availableBottleSkinsId;
-  final List<String> availableTableSkinsId;
-  final List<String> achievedAchievementsId;
+@freezed
+class UserEntity with _$UserEntity {
+  @JsonSerializable(explicitToJson: true)
+  const factory UserEntity({
+    @Default('') String id,
+    @Default(Role.user) Role role,
+    @Default('') String firstName,
+    String? secondName,
+    Gender? gender,
+    int? age,
+    @Default(0) int heartsAmount,
+    @Default(0) double kissesAmount,
+    @Default(AppImages.defaultAvatar) AppImage avatar,
+    @Default(AppImages.defaultBorder) AppImage border,
+    @Default(<String>['1']) List<String> availableBordersId,
+    @Default(<String>['1']) List<String> availableBottleSkinsId,
+    @Default(<String>['1']) List<String> availableTableSkinsId,
+    @Default(<String>[]) List<String> achievedAchievementsId,
+  }) = _UserEntity;
 
-  const UserEntity({
-    this.id = '',
-    this.role = '',
-    this.firstName = '',
-    this.secondName = '',
-    this.age = 0,
-    this.heartsAmount = 0,
-    this.avatar = AppImages.defaultAvatar,
-    this.border = AppImages.defaultBorder,
-    this.availableBordersId = const <String>['1'],
-    this.availableBottleSkinsId = const <String>['1'],
-    this.availableTableSkinsId = const <String>['1'],
-    this.achievedAchievementsId = const <String>[],
-  });
+  factory UserEntity.fromJson(Map<String, dynamic> json) => _$UserEntityFromJson(json);
 
-  const UserEntity.empty()
-      : id = '',
-        role = '',
-        firstName = '',
-        secondName = null,
-        age = null,
-        heartsAmount = 0,
-        avatar = AppImages.defaultAvatar,
-        border = AppImages.defaultBorder,
-        availableBordersId = const <String>[],
-        availableBottleSkinsId = const <String>[],
-        availableTableSkinsId = const <String>[],
-        achievedAchievementsId = const <String>[];
-
-  static UserEntity? fromJson(Map<String, dynamic>? json) {
-    return json == null ? null : _$UserEntityFromJson(json);
-  }
-
-  Map<String, dynamic> toJson() => _$UserEntityToJson(this);
 }
+

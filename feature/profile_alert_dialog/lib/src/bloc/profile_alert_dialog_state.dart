@@ -5,7 +5,7 @@ class ProfileAlertDialogState {
   final UserModel? user;
 
   const ProfileAlertDialogState({
-    this.user = const UserModel.empty(),
+    this.user = const UserModel(),
   });
 
   ProfileAlertDialogState copyWith({

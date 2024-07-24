@@ -5,7 +5,7 @@ class SettingState {
   final UserModel user;
 
   const SettingState({
-    this.user = const UserModel.empty(),
+    this.user = const UserModel(),
   });
 
   SettingState copyWith({

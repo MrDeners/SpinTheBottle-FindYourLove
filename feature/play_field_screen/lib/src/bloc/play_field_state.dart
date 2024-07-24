@@ -22,8 +22,8 @@ class PlayFieldState {
       null,
       null,
     ],
-    this.currentUser = const UserModel.empty(),
-    this.table = const TableModel.empty(),
+    this.currentUser = const UserModel(),
+    this.table = const TableModel(),
     this.webSocketChannel,
   });
 

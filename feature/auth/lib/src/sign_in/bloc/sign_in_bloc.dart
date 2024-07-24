@@ -1,7 +1,5 @@
 import 'package:core/core.dart';
-import 'package:core_ui/core_ui.dart';
 import 'package:domain/domain.dart';
-import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 
 import '../../../constants/auth_constants.dart';
@@ -53,7 +51,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           state.copyWith(
             toast: ToastModel(
               message: LocaleKeys.authScreen_successLogIn.tr(),
-              type: ToastType.Success,
+              type: ToastType.success,
             ),
           ),
         );
@@ -62,7 +60,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
           state.copyWith(
             toast: ToastModel(
               message: error.message,
-              type: ToastType.Error,
+              type: ToastType.error,
             ),
           ),
         );

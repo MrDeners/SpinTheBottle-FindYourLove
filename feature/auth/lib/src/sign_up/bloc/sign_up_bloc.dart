@@ -1,8 +1,5 @@
 import 'package:core/core.dart';
-import 'package:core_ui/core_ui.dart';
 import 'package:domain/domain.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:navigation/navigation.dart';
 
 import '../../../constants/auth_constants.dart';
@@ -76,13 +73,13 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         await _appRouter.replaceAll(<PageRouteInfo>[const HomeRoute()]);
         emit(
           state.copyWith(
-            toast: ToastModel(message: LocaleKeys.authScreen_logIn.tr(), type: ToastType.Success),
+            toast: ToastModel(message: LocaleKeys.authScreen_logIn.tr(), type: ToastType.success),
           ),
         );
       } on AppException catch (error) {
         emit(
           state.copyWith(
-            toast: ToastModel(message: error.message, type: ToastType.Error),
+            toast: ToastModel(message: error.message, type: ToastType.error),
           ),
         );
       }
