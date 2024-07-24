@@ -8,8 +8,9 @@ import '../../providers/api_provider.dart';
 
 class ApiRepositoryImpl implements ApiRepository {
   final ApiProvider _apiProvider;
+  late WebSocketChannel webSocketChannel;
 
-  const ApiRepositoryImpl({
+  ApiRepositoryImpl({
     required ApiProvider apiProvider,
   }) : _apiProvider = apiProvider;
 
@@ -32,11 +33,13 @@ class ApiRepositoryImpl implements ApiRepository {
 
 
   @override
-  Future<WebSocketChannel> webSocketConnect(String url) async {
+  Future<Stream<dynamic>> webSocketConnect(String url) async {
     final Uri uri = Uri.parse(url);
-    final WebSocketChannel chanel = WebSocketChannel.connect(uri);
+    final WebSocketChannel chanel = await _apiProvider.webSocketConnect(uri);
 
-    return chanel;
+    webSocketChannel = chanel;
+
+    return webSocketChannel.stream;
   }
 
   @override

@@ -30,8 +30,7 @@ class ApiProvider {
     return tableId;
   }
 
-  Future<WebSocketChannel> webSocketConnect(String url) async {
-    final Uri uri = Uri.parse(url);
+  Future<WebSocketChannel> webSocketConnect(Uri uri) async {
     final WebSocketChannel chanel = WebSocketChannel.connect(uri);
 
     return chanel;

@@ -7,7 +7,7 @@ abstract class ApiRepository {
 
   Future<void> saveTableChanges();
 
-  Future<WebSocketChannel> webSocketConnect(String url);
+  Stream<dynamic> webSocketConnect(String url);
 
   Future<void> webSocketDisconnect(WebSocketChannel chanel);
 
