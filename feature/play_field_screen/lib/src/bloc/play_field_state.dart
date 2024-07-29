@@ -5,7 +5,7 @@ class PlayFieldState {
   final List<UserModel?> users;
   final TableModel table;
   final UserModel currentUser;
-  final WebSocketChannel? webSocketChannel;
+  final Stream<dynamic>? webSocketStream;
 
   const PlayFieldState({
     this.users = const <UserModel?>[
@@ -24,18 +24,18 @@ class PlayFieldState {
     ],
     this.currentUser = const UserModel(),
     this.table = const TableModel(),
-    this.webSocketChannel,
+    this.webSocketStream,
   });
 
   PlayFieldState copyWith({
     List<UserModel?>? users,
     UserModel? currentUser,
-    WebSocketChannel? webSocketChannel,
+    Stream<dynamic>? webSocketStream,
   }) {
     return PlayFieldState(
       users: users ?? this.users,
       currentUser: currentUser ?? this.currentUser,
-      webSocketChannel: webSocketChannel ?? this.webSocketChannel,
+      webSocketStream: webSocketStream ?? this.webSocketStream,
     );
   }
 }

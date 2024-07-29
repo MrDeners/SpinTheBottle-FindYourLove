@@ -1,9 +1,7 @@
-import 'package:core/core.dart';
-
 import '../../domain.dart';
 import 'usecase.dart';
 
-class WebSocketConnectUseCase implements FutureUseCase<String, WebSocketChannel> {
+class WebSocketConnectUseCase implements FutureUseCase<String, void> {
   final ApiRepository _apiRepository;
 
   const WebSocketConnectUseCase({
@@ -11,7 +9,7 @@ class WebSocketConnectUseCase implements FutureUseCase<String, WebSocketChannel>
   }) : _apiRepository = apiRepository;
 
   @override
-  Future<WebSocketChannel> execute(String url) {
+  Future<void> execute(String url) {
    return _apiRepository.webSocketConnect(url);
   }
 }

@@ -8,7 +8,7 @@ import '../../providers/api_provider.dart';
 
 class ApiRepositoryImpl implements ApiRepository {
   final ApiProvider _apiProvider;
-  late WebSocketChannel webSocketChannel;
+  WebSocketChannel? _webSocketChannel;
 
   ApiRepositoryImpl({
     required ApiProvider apiProvider,
@@ -31,20 +31,30 @@ class ApiRepositoryImpl implements ApiRepository {
     await _apiProvider.saveTableChanges();
   }
 
-
   @override
-  Future<Stream<dynamic>> webSocketConnect(String url) async {
+  Future<void> webSocketConnect(String url) async {
     final Uri uri = Uri.parse(url);
     final WebSocketChannel chanel = await _apiProvider.webSocketConnect(uri);
 
-    webSocketChannel = chanel;
-
-    return webSocketChannel.stream;
+    _webSocketChannel = chanel;
   }
 
   @override
-  Future<void> webSocketDisconnect(WebSocketChannel chanel) async {
-    await chanel.sink.close();
+  Stream<dynamic> webSocketGetStream() {
+    try {
+      return _webSocketChannel!.stream;
+    } catch (e) {
+      log('Unconnected WebSocket channel');
+      throw const AppException(
+        code: AppExceptionCode.unconnectedSocket,
+        errorMessage: 'Unconnected WebSocket channel',
+      );
+    }
+  }
+
+  @override
+  Future<void> webSocketDisconnect() async {
+    await _webSocketChannel?.sink.close();
   }
 
   @override

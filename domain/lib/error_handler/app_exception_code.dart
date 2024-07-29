@@ -3,6 +3,7 @@ enum AppExceptionCode {
   noAccess,
   unknown,
   socket,
+  unconnectedSocket,
   serverNotAvailable,
   badRequest,
   loadFault,

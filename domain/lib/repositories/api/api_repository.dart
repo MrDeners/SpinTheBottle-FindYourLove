@@ -1,5 +1,3 @@
-import 'package:core/core.dart';
-
 import '../../models/user/user_model.dart';
 
 abstract class ApiRepository {
@@ -7,9 +5,11 @@ abstract class ApiRepository {
 
   Future<void> saveTableChanges();
 
-  Stream<dynamic> webSocketConnect(String url);
+  Future<void> webSocketConnect(String url);
 
-  Future<void> webSocketDisconnect(WebSocketChannel chanel);
+  Stream<dynamic> webSocketGetStream();
+
+  Future<void> webSocketDisconnect();
 
   Future<String> getTableIdByUserData(UserModel user);
 }

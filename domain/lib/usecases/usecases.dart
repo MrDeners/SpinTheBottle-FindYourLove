@@ -8,3 +8,4 @@ export 'src/update_user_data_on_db_usecase.dart';
 export 'src/web_socket_connect_usecase.dart';
 export 'src/web_socket_disconnect_usecase.dart';
 export 'src/write_user_to_db_usecase.dart';
+export 'src/web_socket_get_stream_usecase.dart';

@@ -1,6 +1,5 @@
 import 'package:core/core.dart';
 import 'package:domain/domain.dart';
-import 'package:flutter/material.dart';
 import 'package:navigation/navigation.dart';
 
 part 'play_field_event.dart';
@@ -13,6 +12,7 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
   final GetTableIdByUserDataUseCase _getTableIdByUserDataUseCase;
   final WebSocketConnectUseCase _webSocketConnectUseCase;
   final WebSocketDisconnectUseCase _webSocketDisconnectUseCase;
+  final WebSocketGetStreamUseCase _webSocketGetStreamUseCase;
 
   PlayFieldBloc({
     required AppRouter appRouter,
@@ -20,11 +20,13 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
     required GetTableIdByUserDataUseCase getTableIdByUserDataUseCase,
     required WebSocketConnectUseCase webSocketConnectUseCase,
     required WebSocketDisconnectUseCase webSocketDisconnectUseCase,
+    required WebSocketGetStreamUseCase webSocketGetStreamUseCase,
   })  : _appRouter = appRouter,
         _getUsersOnTableUseCase = getUsersOnTableUseCase,
         _getTableIdByUserDataUseCase = getTableIdByUserDataUseCase,
         _webSocketConnectUseCase = webSocketConnectUseCase,
         _webSocketDisconnectUseCase = webSocketDisconnectUseCase,
+        _webSocketGetStreamUseCase = webSocketGetStreamUseCase,
         super(const PlayFieldState()) {
     on<UpdateTablePlayersEvent>(_onUpdateTablePlayers);
     on<EnterToPlayFieldEvent>(_onEnterToPlayField);
@@ -60,12 +62,13 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
 
     //final String tableId = await _getTableIdByUserDataUseCase.execute(user);
     //TODO: get url with tableID
-    //final WebSocketChannel webSocketChannel = await _webSocketConnectUseCase.execute(tableId);
+    //await _webSocketConnectUseCase.execute('tableId');
+    //final Stream<dynamic> stream = _webSocketGetStreamUseCase.execute();
 
     emit(
       state.copyWith(
         currentUser: user,
-        //webSocketChannel: webSocketChannel,
+        //webSocketStream: stream,
       ),
     );
 
@@ -76,7 +79,7 @@ class PlayFieldBloc extends Bloc<PlayFieldEvent, PlayFieldState> {
     ClosePlayFieldEvent event,
     Emitter<PlayFieldState> emit,
   ) async {
-    await _webSocketDisconnectUseCase.execute(state.webSocketChannel!);
+    await _webSocketDisconnectUseCase.execute();
   }
 
   Future<void> _onNavigateBack(

@@ -1,6 +1,7 @@
 library core;
 
 export 'dart:convert';
+export 'dart:developer';
 
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'package:core/localization/generated/locale_keys.g.dart';

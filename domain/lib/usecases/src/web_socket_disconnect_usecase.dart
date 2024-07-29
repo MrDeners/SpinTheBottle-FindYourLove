@@ -1,9 +1,7 @@
-import 'package:core/core.dart';
-
 import '../../domain.dart';
 import 'usecase.dart';
 
-class WebSocketDisconnectUseCase implements FutureUseCase<WebSocketChannel, void> {
+class WebSocketDisconnectUseCase implements FutureUseCase<NoParams, void> {
   final ApiRepository _apiRepository;
 
   const WebSocketDisconnectUseCase({
@@ -11,7 +9,7 @@ class WebSocketDisconnectUseCase implements FutureUseCase<WebSocketChannel, void
   }) : _apiRepository = apiRepository;
 
   @override
-  Future<void> execute(WebSocketChannel chanel) async {
-    await _apiRepository.webSocketDisconnect(chanel);
+  Future<void> execute([NoParams? params]) async {
+    await _apiRepository.webSocketDisconnect();
   }
 }

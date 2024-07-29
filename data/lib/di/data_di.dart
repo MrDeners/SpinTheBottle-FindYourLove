@@ -96,6 +96,14 @@ class DataDI {
       },
     );
 
+    appLocator.registerLazySingleton<WebSocketGetStreamUseCase>(
+          () {
+        return WebSocketGetStreamUseCase(
+          apiRepository: appLocator<ApiRepository>(),
+        );
+      },
+    );
+
     appLocator.registerLazySingleton<WebSocketDisconnectUseCase>(
           () {
         return WebSocketDisconnectUseCase(
