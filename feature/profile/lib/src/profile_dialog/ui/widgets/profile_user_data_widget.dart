@@ -15,6 +15,7 @@ class ProfileUserDataWidget extends StatelessWidget {
     final UserModel user = context.read<ProfileDialogBloc>().state.user;
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Expanded(
           child: Container(
@@ -22,7 +23,9 @@ class ProfileUserDataWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius),
             ),
             //child: user.avatar.callSquare(),
-            child: CachedNetworkImage(imageUrl: 'https://pixlr.com/images/generator/text-to-image.webp', fit: BoxFit.fitWidth,),
+            child: CachedNetworkImage(
+              imageUrl: 'https://pixlr.com/images/generator/text-to-image.webp',
+            ),
           ),
         ),
         Text(
@@ -34,31 +37,31 @@ class ProfileUserDataWidget extends StatelessWidget {
               ..color = context.theme.colors.primaryText,
           ),
         ),
-        Row(
-          children: <Widget>[
-            AppIcons.kiss.callWith(
-              size: AppDimens.smallIconSize,
-              child: Text(
-                user.kissesAmount.ceil().toString(),
-                style: AppFonts.primary18.copyWith(
-                  foreground: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 1
-                    ..color = context.theme.colors.primaryText,
-                ),
-              ),
+        AppIcons.kiss.callWith(
+          size: 20,
+          child: Text(
+            user.kissesAmount.ceil().toString(),
+            style: AppFonts.primary14.copyWith(
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 1
+                ..color = context.theme.colors.primaryText,
             ),
-          ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            AppIcons.vkLogo.call(size: 30),
-            AppIcons.telegramLogo.call(size: 30),
-            AppIcons.instagramLogo.call(size: 30),
-            AppIcons.okLogo.call(size: 30),
-          ],
-        ),
+        const SizedBox(height: AppDimens.contentPadding4),
+        if (!user.isLinksEmpty)
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                if (user.links['vk'] != null) AppIcons.vkLogo.call(),
+                if (user.links['telegram'] != null) AppIcons.telegramLogo.call(),
+                if (user.links['instagram'] != null) AppIcons.instagramLogo.call(),
+                if (user.links['ok'] != null) AppIcons.okLogo.call(),
+              ],
+            ),
+          ),
       ],
     );
   }

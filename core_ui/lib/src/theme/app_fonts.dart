@@ -20,6 +20,7 @@ class AppFonts {
   static const double fontSize14 = 14;
 
   static const double fontSize12 = 12;
+  static const double fontSize10 = 10;
 
   static const TextStyle primary40 = TextStyle(
     fontWeight: FontWeight.w700,
@@ -76,6 +77,14 @@ class AppFonts {
     package: _packageName,
   );
 
+  static const TextStyle primary10 = TextStyle(
+    fontWeight: FontWeight.w500,
+    fontSize: fontSize10,
+    fontFamily: _fontFamilyRounds,
+    height: lineHeight,
+    package: _packageName,
+  );
+
   static const TextStyle secondary16Regular = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: fontSize16,
@@ -111,6 +120,14 @@ class AppFonts {
   static const TextStyle secondary12Regular = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: fontSize12,
+    fontFamily: _fontFamilyPangram,
+    height: lineHeight,
+    package: _packageName,
+  );
+
+  static const TextStyle secondary10Regular = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: fontSize10,
     fontFamily: _fontFamilyPangram,
     height: lineHeight,
     package: _packageName,

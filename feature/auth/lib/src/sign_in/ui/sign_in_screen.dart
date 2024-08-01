@@ -18,7 +18,10 @@ class SignInScreen extends StatelessWidget {
         signInUseCase: appLocator.get<SignInUseCase>(),
       ),
       child: const Scaffold(
-        body: SignInContent(),
+        body: SafeArea(
+          top: false,
+          child: SignInContent(),
+        ),
       ),
     );
   }

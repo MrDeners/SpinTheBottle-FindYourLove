@@ -18,6 +18,7 @@ class UsersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<UserModel?> users = context.watch<PlayFieldBloc>().state.users;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[

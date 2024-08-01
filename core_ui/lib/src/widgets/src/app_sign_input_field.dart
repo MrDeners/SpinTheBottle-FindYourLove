@@ -52,7 +52,9 @@ class _AppSignInputFieldState extends State<AppSignInputField> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    if (widget.controller == null) {
+      _controller.dispose();
+    }
     super.dispose();
   }
 

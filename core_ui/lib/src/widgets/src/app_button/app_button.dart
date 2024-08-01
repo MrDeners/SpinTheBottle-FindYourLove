@@ -40,12 +40,27 @@ class AppButton extends StatelessWidget {
     super.key,
   });
 
+  const AppButton.cancel({
+    required this.child,
+    required this.onTap,
+    this.style = AppButtonStyle.cancel,
+    this.isActive = true,
+    this.isExpanded = true,
+    this.backgroundColor,
+    this.padding,
+    this.border,
+    this.borderRadius,
+    super.key,
+  });
+
   Color getBackgroundColor(AppColorsTheme colors) {
     switch (style) {
       case AppButtonStyle.elevated:
         return colors.accent;
       case AppButtonStyle.outlined:
         return colors.transparent;
+      case AppButtonStyle.cancel:
+        return colors.error;
     }
   }
 

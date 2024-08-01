@@ -19,51 +19,56 @@ class ProfileDialogContent extends StatelessWidget {
 
     return BlocBuilder<ProfileDialogBloc, ProfileDialogState>(
       builder: (BuildContext context, ProfileDialogState state) {
-        return Container(
-          color: colors.transparent,
-          padding: EdgeInsets.only(
-            top: AppDimens.contentPadding20,
-            bottom: AppDimens.contentPadding20,
-            left: AppDimens.contentPadding30,
-            right: MediaQuery.of(context).size.width * 0.35,
-          ),
-          child: GestureDetector(
-            onTap: () {},
-            child: Container(
-              decoration: BoxDecoration(
-                color: colors.background,
-                border: Border.all(
-                  color: colors.border,
-                  width: 2,
-                ),
-                borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius),
+        return LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints constraints) {
+            return Container(
+              color: colors.transparent,
+              padding: const EdgeInsets.only(
+                top: AppDimens.contentPadding30,
+                bottom: AppDimens.contentPadding30,
+                left: AppDimens.contentPadding100,
+                right: AppDimens.contentPadding100,
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(AppDimens.contentPadding16),
-                child: Row(
-                  children: <Widget>[
-                    const Expanded(child: ProfileUserDataWidget()),
-                    const SizedBox(width: AppDimens.contentPadding16),
-                    Expanded(
-                      child: Column(
-                        children: <Widget>[
-                          AppPassProgressWidget(seasonPass: user.seasonPass),
-                          const SizedBox(height: AppDimens.contentPadding12),
-                          AppLeagueProgressWidget(league: user.league),
-                          const SizedBox(height: AppDimens.contentPadding12),
-                          //TODO: Get partner by user.courtship.partnerId from DB
-                          CourtshipWidget(
-                            partner: user,
-                            courtship: user.courtship,
-                          ),
-                        ],
-                      ),
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: colors.background,
+                    border: Border.all(
+                      color: colors.border,
+                      width: 2,
                     ),
-                  ],
+                    borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(AppDimens.contentPadding16),
+                    child: Row(
+                      children: <Widget>[
+                        const Expanded(
+                          child: ProfileUserDataWidget(),
+                        ),
+                        const SizedBox(width: AppDimens.contentPadding16),
+                        Expanded(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              AppPassProgressWidget(seasonPass: user.seasonPass),
+                              AppLeagueProgressWidget(league: user.league),
+                              //TODO: Get partner by user.courtship.partnerId from DB
+                              CourtshipWidget(
+                                partner: user,
+                                courtship: user.courtship,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          },
         );
       },
     );

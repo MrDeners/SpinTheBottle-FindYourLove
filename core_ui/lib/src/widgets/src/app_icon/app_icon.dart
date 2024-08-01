@@ -67,21 +67,26 @@ class AppIcon {
     return GestureDetector(
       onTap: onTap,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
-            padding: padding ?? EdgeInsets.zero,
-            child: SvgPicture.asset(
-              iconKey,
-              package: AppIcons.packageName,
-              colorFilter: color != null
-                  ? ColorFilter.mode(
-                      color,
-                      BlendMode.srcIn,
-                    )
-                  : null,
-              fit: fit ?? BoxFit.contain,
-              height: size,
-              width: size,
+          InkWell(
+            borderRadius: BorderRadius.circular(size ?? 0.0),
+            onTap: onTap,
+            child: Padding(
+              padding: padding ?? EdgeInsets.zero,
+              child: SvgPicture.asset(
+                iconKey,
+                package: AppIcons.packageName,
+                colorFilter: color != null
+                    ? ColorFilter.mode(
+                        color,
+                        BlendMode.srcIn,
+                      )
+                    : null,
+                fit: fit ?? BoxFit.contain,
+                height: size,
+                width: size,
+              ),
             ),
           ),
           SizedBox(width: spacer ?? AppDimens.contentPadding4),

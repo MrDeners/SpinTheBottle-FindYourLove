@@ -29,14 +29,14 @@ class AppPassProgressWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius),
         child: AppImages.mainTableSkin.callBackground(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppDimens.contentPadding16,
+            horizontal: AppDimens.contentPadding20,
             vertical: AppDimens.contentPadding4,
           ),
           child: Column(
             children: <Widget>[
               Text(
                 LocaleKeys.profile_level.watchTr(context),
-                style: AppFonts.secondary12Regular,
+                style: AppFonts.primary12,
               ),
               LinearProgressIndicator(
                 value: seasonPass.currentExperience / seasonPass.levelUpExperience * 100,

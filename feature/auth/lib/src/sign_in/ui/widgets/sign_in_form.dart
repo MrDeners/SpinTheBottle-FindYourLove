@@ -39,71 +39,81 @@ class _SignInFormState extends State<SignInForm> {
       },
       builder: (BuildContext context, SignInState state) {
         return SizedBox(
-          width: MediaQuery.of(context).size.width * 0.7,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              const Padding(
-                padding: EdgeInsets.only(top: AppDimens.contentPadding16),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.33,
-                    child: AppSignInputField(
-                      controller: loginController,
-                      title: LocaleKeys.authScreen_email.watchTr(context),
-                      error: context
-                          .read<SignInBloc>()
-                          .state
-                          .validationErrors[AuthConstants.emailError],
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.33,
-                    child: AppSignInputField(
-                      title: LocaleKeys.authScreen_password.watchTr(context),
-                      error: context
-                          .read<SignInBloc>()
-                          .state
-                          .validationErrors[AuthConstants.passwordError],
-                      isPassword: true,
-                      controller: passwordController,
-                    ),
-                  ),
-                ],
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: AppDimens.contentPadding16),
-              ),
-              AppButton(
-                isExpanded: false,
-                onTap: () {
-                  context.read<SignInBloc>().add(
-                        SignIn(
-                          email: loginController.text,
-                          password: passwordController.text,
+              LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      SizedBox(
+                        width: constraints.maxWidth * 0.35,
+                        child: AppSignInputField(
+                          controller: loginController,
+                          title: LocaleKeys.authScreen_email.watchTr(context),
+                          error: context
+                              .read<SignInBloc>()
+                              .state
+                              .validationErrors[AuthConstants.emailError],
                         ),
-                      );
+                      ),
+                      SizedBox(
+                        width: constraints.maxWidth * 0.35,
+                        child: AppSignInputField(
+                          title: LocaleKeys.authScreen_password.watchTr(context),
+                          error: context
+                              .read<SignInBloc>()
+                              .state
+                              .validationErrors[AuthConstants.passwordError],
+                          isPassword: true,
+                          controller: passwordController,
+                        ),
+                      ),
+                    ],
+                  );
                 },
-                child: Text(
-                  LocaleKeys.authScreen_logIn.watchTr(context),
-                ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: AppDimens.contentPadding16),
-              ),
-              AppButton(
-                isExpanded: false,
-                onTap: () {
-                  context.read<SignInBloc>().add(
-                        const NavigateToSignUpEvent(),
-                      );
-                },
-                child: Text(
-                  LocaleKeys.authScreen_createAccount.watchTr(context),
-                ),
+              const SizedBox(height: AppDimens.contentPadding16),
+              Row(
+                children: <Widget>[
+                  const Spacer(),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        AppButton(
+                          onTap: () {
+                            context.read<SignInBloc>().add(
+                                  SignIn(
+                                    email: loginController.text,
+                                    password: passwordController.text,
+                                  ),
+                                );
+                          },
+                          child: Text(
+                            LocaleKeys.authScreen_logIn.watchTr(context),
+                            style: AppFonts.primary18,
+                          ),
+                        ),
+                        const SizedBox(height: AppDimens.contentPadding20),
+                        AppButton(
+                          onTap: () {
+                            context.read<SignInBloc>().add(
+                                  const NavigateToSignUpEvent(),
+                                );
+                          },
+                          child: Text(
+                            LocaleKeys.authScreen_createAccount.watchTr(context),
+                            style: AppFonts.primary18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Spacer(),
+                ],
               ),
             ],
           ),

@@ -11,22 +11,18 @@ class SignInContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppImages.mainScreenBackground.callBackground(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
       fit: BoxFit.cover,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.only(top: AppDimens.contentPadding8),
-          ),
+          const SizedBox(height: AppDimens.contentPadding8),
           AppImages.naming.call(),
-          AppImages.bottomSheetBackground.callBackground(
-            width: MediaQuery.of(context).size.width,
-            child: SafeArea(
-              top: false,
-              child: Container(
-                alignment: Alignment.center,
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(AppDimens.mainBorderRadius),
+              ),
+              child: AppImages.mainTableSkin.callBackground(
                 child: const SignInForm(),
               ),
             ),

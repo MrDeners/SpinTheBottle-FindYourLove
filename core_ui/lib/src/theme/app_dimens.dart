@@ -4,6 +4,7 @@ class AppDimens {
   static const double contentPadding350 = 350.0;
   static const double contentPadding300 = 300.0;
   static const double contentPadding150 = 150.0;
+  static const double contentPadding120 = 120.0;
   static const double contentPadding100 = 100.0;
   static const double contentPadding80 = 80.0;
   static const double contentPadding60 = 60.0;

@@ -29,61 +29,70 @@ class CourtshipWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius - 2),
         child: AppImages.mainTableSkin.callBackground(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppDimens.contentPadding16,
+            horizontal: AppDimens.contentPadding20,
             vertical: AppDimens.contentPadding8,
           ),
           child: Column(
             children: <Widget>[
               Text(
                 LocaleKeys.profile_courtship.watchTr(context),
-                style: AppFonts.secondary12Regular,
+                style: AppFonts.primary14,
               ),
               Row(
                 children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius),
+                  Expanded(
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius),
+                          ),
+                          child: partner.avatar.callSquare(),
                         ),
-                        child: partner.avatar.callSquare(),
-                      ),
-                      Text(partner.firstName),
-                      Text(partner.secondName ?? ''),
-                    ],
+                        Text(
+                          partner.firstName,
+                          style: AppFonts.primary10,
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(width: AppDimens.contentPadding8),
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        LocaleKeys.profile_courtshipDuration.watchTr(context),
-                      ),
-                      Text(
-                        '${DateTime.now().difference(courtship.started!).inDays} ${LocaleKeys.general_days.watchTr(context)}',
-                      ),
-                      const SizedBox(height: AppDimens.contentPadding8),
-                      AppIcons.heart.callWith(
-                        size: 20,
-                        child: Text(
-                          courtship.price.toString(),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          LocaleKeys.profile_courtshipDuration.watchTr(context),
+                          style: AppFonts.primary10,
                         ),
-                      ),
-                      const SizedBox(height: AppDimens.contentPadding8),
-                      //TODO: implement BloC logic of Courtship
-                      AppButton(
-                        isExpanded: false,
-                        onTap: () {},
-                        padding: const EdgeInsets.symmetric(
-                          vertical: AppDimens.contentPadding4,
-                          horizontal: AppDimens.contentPadding12,
+                        Text(
+                          '${DateTime.now().difference(courtship.started!).inDays} ${LocaleKeys.general_days.watchTr(context)}',
+                          style: AppFonts.primary12,
                         ),
-                        backgroundColor: colors.backgroundDarkPrimary,
-                        child: Text(
-                          LocaleKeys.profile_getCourtship.watchTr(context),
-                          style: AppFonts.secondary12Regular.copyWith(color: colors.error),
+                        const SizedBox(height: AppDimens.contentPadding4),
+                        AppIcons.heart.callWith(
+                          size: 20,
+                          child: Text(
+                            courtship.price.toString(),
+                            style: AppFonts.primary12,
+                          ),
                         ),
-                      ),
-                    ],
+                        //TODO: implement BloC logic of Courtship
+                        AppButton(
+                          isExpanded: false,
+                          onTap: () {},
+                          padding: const EdgeInsets.symmetric(
+                            vertical: AppDimens.contentPadding4,
+                            horizontal: AppDimens.contentPadding12,
+                          ),
+                          backgroundColor: colors.backgroundDarkPrimary,
+                          child: Text(
+                            LocaleKeys.profile_getCourtship.watchTr(context),
+                            style: AppFonts.primary10.copyWith(color: colors.error),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

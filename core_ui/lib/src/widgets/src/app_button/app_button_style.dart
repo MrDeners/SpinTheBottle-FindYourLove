@@ -1,4 +1,5 @@
 enum AppButtonStyle {
   elevated,
-  outlined
+  outlined,
+  cancel
 }

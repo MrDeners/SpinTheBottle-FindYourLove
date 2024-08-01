@@ -28,38 +28,44 @@ class AppLeagueProgressWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppDimens.mainBorderRadius - 2),
         child: AppImages.mainTableSkin.callBackground(
           padding: const EdgeInsets.symmetric(
-            horizontal: AppDimens.contentPadding16,
+            horizontal: AppDimens.contentPadding20,
             vertical: AppDimens.contentPadding8,
           ),
           child: Column(
             children: <Widget>[
               Text(
                 '${league.leagueLevel.name} ${LocaleKeys.league_leagueTitle.watchTr(context)}',
-                style: AppFonts.secondary12Regular,
+                style: AppFonts.primary12,
               ),
-              const SizedBox(height: AppDimens.contentPadding8),
               Row(
                 children: <Widget>[
                   //league.leagueLevel.icon.call(),
                   //TODO: change when league icons are added
-                  AppIcons.vkLogo.call(),
-                  const SizedBox(width: AppDimens.contentPadding8),
+                  AppIcons.vkLogo.call(size: AppDimens.mediumIconSize),
                   Expanded(
                     child: Column(
                       children: <Widget>[
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: <Widget>[
                             AppIcons.heartPlus.callWith(
-                              child: Text(league.score.toString()),
-                              size: 20,
+                              child: Text(
+                                league.score.toString(),
+                                style: AppFonts.primary12,
+                              ),
+                              size: AppDimens.smallIconSize,
                             ),
-                            const SizedBox(width: AppDimens.contentPadding40),
-                            Text('#${league.position}'),
+                            Text(
+                              '#${league.position}',
+                              style: AppFonts.primary12,
+                            ),
                           ],
                         ),
-                        const SizedBox(height: AppDimens.contentPadding8),
-                        Text(DateTimeUtility.formatTimeLeft(league.timeLeft)),
+                        const SizedBox(height: AppDimens.contentPadding4),
+                        Text(
+                          DateTimeUtility.formatTimeLeft(league.timeLeft),
+                          style: AppFonts.primary12,
+                        ),
                       ],
                     ),
                   ),

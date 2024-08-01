@@ -52,19 +52,26 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      locale: context.locale,
-      localizationsDelegates: <LocalizationsDelegate<dynamic>>[
-        ...context.localizationDelegates,
-      ],
-      supportedLocales: context.supportedLocales,
-      routerDelegate: appLocator.get<AppRouter>().delegate(),
-      routeInformationParser: appLocator.get<AppRouter>().defaultRouteParser(),
-      builder: (BuildContext context, Widget? child) {
-        return child ?? const SizedBox.shrink();
-      },
+    return MediaQuery(
+      data: MediaQueryData(
+        textScaler: TextScaler.linear(
+          TextScaleUtility.textScaleFactor(context),
+        ),
+      ),
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        theme: lightTheme,
+        locale: context.locale,
+        localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+          ...context.localizationDelegates,
+        ],
+        supportedLocales: context.supportedLocales,
+        routerDelegate: appLocator.get<AppRouter>().delegate(),
+        routeInformationParser: appLocator.get<AppRouter>().defaultRouteParser(),
+        builder: (BuildContext context, Widget? child) {
+          return child ?? const SizedBox.shrink();
+        },
+      ),
     );
   }
 }

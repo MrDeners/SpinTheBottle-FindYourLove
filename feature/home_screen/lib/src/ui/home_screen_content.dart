@@ -12,35 +12,36 @@ class HomeScreenContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        AppImages.mainScreenBackground(
-          fit: BoxFit.cover,
-        ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                top: AppDimens.contentPadding16,
-                left: AppDimens.contentPadding16,
-                right: AppDimens.contentPadding16,
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  HeartsCounter(
-                    heartsAmount: context.watch<HomeBloc>().state.user.heartsAmount,
-                  ),
-                  AppImages.naming.call(),
-                  const SizedBox(
-                    width: AppDimens.bigIconSize,
-                  ),
-                ],
-              ),
+    return AppImages.mainScreenBackground.callBackground(
+      fit: BoxFit.cover,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(
+              top: AppDimens.contentPadding16,
+              left: AppDimens.contentPadding16,
+              right: AppDimens.contentPadding16,
             ),
-            Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                HeartsCounter(
+                  heartsAmount: context.watch<HomeBloc>().state.user.heartsAmount,
+                ),
+                AppImages.naming.call(),
+                const SizedBox(
+                  width: AppDimens.bigIconSize,
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            child: ClipRRect(
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(AppDimens.mainBorderRadius),
+              ),
               child: AppImages.bottomSheetBackground.callBackground(
                 child: SafeArea(
                   top: false,
@@ -51,9 +52,9 @@ class HomeScreenContent extends StatelessWidget {
                 ),
               ),
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }

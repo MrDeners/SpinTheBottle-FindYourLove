@@ -13,12 +13,12 @@ class PlayFieldContent extends StatelessWidget {
       child: const Row(
         children: <Widget>[
           Expanded(
-            flex: 136,
+            flex: 135,
             child: TableWidget(),
           ),
           Spacer(),
           Expanded(
-            flex: 63,
+            flex: 65,
             child: ChatWidget(),
           ),
         ],

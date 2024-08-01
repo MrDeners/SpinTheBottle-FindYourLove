@@ -14,18 +14,16 @@ class TableUserWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size displaySize = MediaQuery.of(context).size;
-
     return GestureDetector(
       onTap: () => user != null ? onTap(user!, context) : (),
       child: Column(
         children: <Widget>[
           Stack(
             children: <Widget>[
-              user!.border.callSquare(size: displaySize.width * 0.07),
+              user!.border.callSquare(),
               Transform.translate(
-                offset: Offset(0, displaySize.height * 0.005),
-                child: user!.avatar.callSquare(size: displaySize.width * 0.07),
+                offset: const Offset(0, 1),
+                child: user!.avatar.callSquare(),
               ),
             ],
           ),

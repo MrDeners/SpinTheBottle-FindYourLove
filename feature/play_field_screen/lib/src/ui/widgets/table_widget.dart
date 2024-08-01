@@ -10,9 +10,11 @@ class TableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppImages.mainTableSkin.callBackground(
-      child: SafeArea(
-        right: false,
+    return ClipRRect(
+      borderRadius: const BorderRadius.horizontal(
+        right: Radius.circular(AppDimens.mainBorderRadius),
+      ),
+      child: AppImages.mainTableSkin.callBackground(
         child: Padding(
           padding: const EdgeInsets.only(
             top: AppDimens.contentPadding16,
@@ -34,9 +36,7 @@ class TableWidget extends StatelessWidget {
                 child: Stack(
                   children: <Widget>[
                     Center(
-                      child: UsersWidget(
-                        onUserTap: showUserProfile,
-                      ),
+                      child: UsersWidget(onUserTap: showUserProfile),
                     ),
                     const Center(
                       child: RotatingBottleWidget(),

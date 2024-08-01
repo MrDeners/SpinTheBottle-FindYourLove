@@ -18,7 +18,9 @@ class SignUpScreen extends StatelessWidget {
         signUpUseCase: appLocator.get<SignUpUseCase>(),
         writeUserToDbUseCase: appLocator.get<WriteUserToDbUseCase>(),
       ),
-      child: const Scaffold(body: SignUpContent()),
+      child: const Scaffold(
+        body: SignUpContent(),
+      ),
     );
   }
 }
