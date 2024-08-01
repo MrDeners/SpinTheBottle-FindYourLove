@@ -9,10 +9,19 @@ class LightColorsTheme extends AppColorsTheme {
   Color get transparent => AppColors.transparent;
 
   @override
-  Color get background => AppColors.white;
+  Color get background => AppColors.lightWhite;
+
+  @override
+  Color get backgroundDarkPrimary => AppColors.lightGray;
+
+  @override
+  Color get backgroundDarkSecondary => AppColors.spanishGray;
 
   @override
   Color get accent => AppColors.lavenderIndigo;
+
+  @override
+  Color get border => AppColors.chineseBlack;
 
   @override
   Color get primaryText => AppColors.chineseBlack;

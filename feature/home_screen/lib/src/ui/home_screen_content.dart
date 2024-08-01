@@ -15,8 +15,6 @@ class HomeScreenContent extends StatelessWidget {
     return Stack(
       children: <Widget>[
         AppImages.mainScreenBackground(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
           fit: BoxFit.cover,
         ),
         Column(
@@ -42,24 +40,15 @@ class HomeScreenContent extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.63,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(
-                children: <Widget>[
-                  AppImages.bottomSheetBackground(
-                    height: double.infinity,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
+            Expanded(
+              child: AppImages.bottomSheetBackground.callBackground(
+                child: SafeArea(
+                  top: false,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: const MenuWidget(),
                   ),
-                  SafeArea(
-                    top: false,
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: const MenuWidget(),
-                    ),
-                  ),
-                ],
+                ),
               ),
             ),
           ],

@@ -8,7 +8,9 @@
     "clearAll": "Очистить список",
     "play": "Играть",
     "profile": "Профиль",
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "timeLeft": "Осталось времени",
+    "days": "дней"
   },
   "authScreen" : {
     "name" : "Имя",
@@ -53,10 +55,29 @@
     "invalidCredential" : "Неверные данные учетной записи"
   },
   "playFieldScreen": {
-    "table": "Table"
+    "table": "Столик"
   },
   "settingScreen": {
     "setting": "Настройки",
     "language": "Язык"
+  },
+  "profile": {
+    "level": "Уровень",
+    "courtship": "Ухаживает",
+    "courtshipDuration": "На протяжении",
+    "getCourtship": "Ухаживать"
+  },
+  "league": {
+    "leagueTitle" : "Лига",
+    "leagueLevel": {
+      "wood": "Деревянная",
+      "bronze": "Бронзовая",
+      "iron": "Железная",
+      "silver": "Серебряная",
+      "gold": "Золотая",
+      "diamond": "Алмазная",
+      "platinum": "Платиновая",
+      "royal": "Королевская"
+    }
   }
 }

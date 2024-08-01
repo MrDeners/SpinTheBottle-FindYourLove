@@ -38,7 +38,7 @@ class AppIconElementButton extends StatelessWidget {
                 horizontal: AppDimens.contentPadding16,
               ),
               child: icon.call(
-                size: AppDimens.EmotionIconHeight,
+                size: AppDimens.emotionIconHeight,
               ),
             ),
           ),

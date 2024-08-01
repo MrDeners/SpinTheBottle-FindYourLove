@@ -105,7 +105,9 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
               const Spacer(flex: 5),
               AppButton(
-                text: LocaleKeys.authScreen_signUpSecondary.watchTr(context),
+                child: Text(
+                  LocaleKeys.authScreen_signUpSecondary.watchTr(context),
+                ),
                 onTap: () {
                   context.read<SignUpBloc>().add(
                         SignUp(

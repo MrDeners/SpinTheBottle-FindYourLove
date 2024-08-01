@@ -40,13 +40,15 @@ class TableLeftButtonsWidget extends StatelessWidget {
 }
 
 class TableRightButtonsWidget extends StatelessWidget {
+  final Function(UserModel, BuildContext) onTap;
   const TableRightButtonsWidget({
+    required this.onTap,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final UserModel user = context.watch<PlayFieldBloc>().state.currentUser;
+    final PlayFieldState state = context.read<PlayFieldBloc>().state;
 
     return SizedBox(
       height: MediaQuery.of(context).size.height * 0.85,
@@ -55,7 +57,7 @@ class TableRightButtonsWidget extends StatelessWidget {
         children: <Widget>[
           AppIcons.primaryUserProfile(
             size: AppDimens.mediumIconSize,
-            onTap: () => context.read<PlayFieldBloc>().add(NavigateUserProfileEvent(user: user)),
+            onTap: () => onTap(state.currentUser, context),
           ),
           AppIcons.music(size: AppDimens.mediumIconSize),
         ],

@@ -13,9 +13,11 @@ class ChangePasswordFormContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        AppIcons.backArrow.call(onTap: () {
-          context.read<ChangePasswordBloc>().add(const NavigateBackEvent());
-        },),
+        AppIcons.backArrow.call(
+          onTap: () {
+            context.read<ChangePasswordBloc>().add(const NavigateBackEvent());
+          },
+        ),
         const Spacer(flex: 15),
         Text(
           LocaleKeys.authScreen_password.watchTr(context),
@@ -34,7 +36,9 @@ class ChangePasswordFormContent extends StatelessWidget {
         const AppSignInputField(isPassword: true),
         const Spacer(flex: 2),
         AppButton(
-          text: LocaleKeys.authScreen_changePassword.watchTr(context),
+          child: Text(
+            LocaleKeys.authScreen_changePassword.watchTr(context),
+          ),
           onTap: () {},
         ),
         const Spacer(flex: 30),

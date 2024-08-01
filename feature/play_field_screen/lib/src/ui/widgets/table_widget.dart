@@ -1,5 +1,7 @@
 import 'package:core_ui/core_ui.dart';
+import 'package:domain/models/user/user_model.dart';
 import 'package:flutter/material.dart';
+import 'package:navigation/navigation.dart';
 import 'table_buttons_widget.dart';
 import 'widgets.dart';
 
@@ -9,10 +11,10 @@ class TableWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppImages.mainTableSkin.callBackground(
-      child: const SafeArea(
+      child: SafeArea(
         right: false,
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: AppDimens.contentPadding16,
             bottom: AppDimens.contentPadding16,
             right: AppDimens.contentPadding16,
@@ -20,7 +22,7 @@ class TableWidget extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Expanded(
+              const Expanded(
                 child: Column(
                   children: <Widget>[
                     TableLeftButtonsWidget(),
@@ -31,8 +33,12 @@ class TableWidget extends StatelessWidget {
                 flex: 10,
                 child: Stack(
                   children: <Widget>[
-                    Center(child: UsersWidget()),
                     Center(
+                      child: UsersWidget(
+                        onUserTap: showUserProfile,
+                      ),
+                    ),
+                    const Center(
                       child: RotatingBottleWidget(),
                     ),
                   ],
@@ -41,7 +47,7 @@ class TableWidget extends StatelessWidget {
               Expanded(
                 child: Column(
                   children: <Widget>[
-                    TableRightButtonsWidget(),
+                    TableRightButtonsWidget(onTap: showUserProfile),
                   ],
                 ),
               ),
@@ -51,5 +57,13 @@ class TableWidget extends StatelessWidget {
       ),
     );
   }
-}
 
+  void showUserProfile(UserModel user, BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      useSafeArea: false,
+      builder: (BuildContext context) => ProfileDialogScreen(user: user),
+    );
+  }
+}

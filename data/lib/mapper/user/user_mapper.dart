@@ -12,6 +12,10 @@ class UserMapper {
       heartsAmount: entity.heartsAmount,
       avatar: entity.avatar,
       border: entity.border,
+      league: entity.league,
+      seasonPass: entity.seasonPass,
+      links: entity.links,
+      courtship: entity.courtship,
     );
   }
 
@@ -24,6 +28,10 @@ class UserMapper {
       heartsAmount: model.heartsAmount,
       avatar: model.avatar,
       border: model.border,
+      league: model.league,
+      seasonPass: model.seasonPass,
+      links: model.links,
+      courtship: model.courtship,
     );
   }
 }

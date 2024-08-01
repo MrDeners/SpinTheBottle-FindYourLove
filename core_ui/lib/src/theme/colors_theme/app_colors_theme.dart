@@ -7,6 +7,12 @@ abstract class AppColorsTheme extends ThemeExtension<AppColorsTheme> {
 
   Color get background;
 
+  Color get backgroundDarkPrimary;
+
+  Color get backgroundDarkSecondary;
+
+  Color get border;
+
   Color get accent;
 
   Color get primaryText;

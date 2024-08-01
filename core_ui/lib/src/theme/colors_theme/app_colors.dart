@@ -4,11 +4,15 @@ class AppColors {
   static const Color transparent = Colors.transparent;
 
   static const Color white = Color.fromRGBO(255, 255, 255, 1);
+  static const Color lightWhite = Color.fromRGBO(237, 237, 237, 1);
   static const Color black = Color.fromRGBO(0, 0, 0, 1);
 
   static const Color lavenderIndigo = Color.fromRGBO(117, 20, 129, 1);
 
   static const Color piggyPink = Color.fromRGBO(250, 217, 230, 1);
+
+  static const Color lightGray = Color.fromRGBO(217, 217, 217, 1);
+  static const Color spanishGray = Color.fromRGBO(145, 145, 145, 1);
 
   static const Color paleLavender = Color.fromRGBO(222, 215, 250, 1);
 

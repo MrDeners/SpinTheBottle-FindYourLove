@@ -24,7 +24,9 @@ export 'constants/formatter_constants.dart';
 export 'constants/storage_constants.dart';
 export 'di/app_di.dart';
 export 'localization/app_localization.dart';
+export 'utils/date_time_utility.dart';
 export 'utils/enums/enums.dart';
 export 'utils/extensions/extensions.dart';
+export 'utils/text_scale_utility.dart';
 export 'utils/validators/validators.dart';
 

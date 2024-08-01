@@ -2,8 +2,7 @@ import 'package:auth/auth.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:home_screen/home_screen.dart';
 import 'package:play_field_screen/play_field_screen.dart';
-import 'package:profile_alert_dialog/profile_alert_dialog.dart';
-import 'package:profile_screen/profile_screen.dart';
+import 'package:profile/profile.dart';
 import 'package:setting_screen/setting_screen.dart';
 
 part 'app_router.gr.dart';
@@ -13,8 +12,7 @@ part 'app_router.gr.dart';
     AuthModule,
     HomeScreenModule,
     PlayFieldScreenModule,
-    ProfileScreenModule,
-    ProfileAlertDialogModule,
+    ProfileModule,
     SettingScreenModule,
   ],
   replaceInRouteName: 'Form,Screen,Route',
@@ -49,10 +47,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: ProfileRoute.page,
           path: '/profile',
-        ),
-        AutoRoute(
-          page: ProfileAlertDialogRoute.page,
-          path: '/profile_alert_dialog',
         ),
         AutoRoute(
           page: SettingRoute.page,

@@ -23,6 +23,16 @@ class UserEntity with _$UserEntity {
     @Default(<String>['1']) List<String> availableBottleSkinsId,
     @Default(<String>['1']) List<String> availableTableSkinsId,
     @Default(<String>[]) List<String> achievedAchievementsId,
+    @Default(SeasonPassUserModel()) SeasonPassUserModel seasonPass,
+    @Default(LeagueUserModel()) LeagueUserModel league,
+    @Default(<String, String?>{
+      'vk': null,
+      'instagram': null,
+      'telegram': null,
+      'ok': null,
+    })
+    Map<String, String?> links,
+    @Default(CourtshipModel()) CourtshipModel courtship,
   }) = _UserEntity;
 
   factory UserEntity.fromJson(Map<String, dynamic> json) => _$UserEntityFromJson(json);

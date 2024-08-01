@@ -8,7 +8,9 @@
     "clearAll": "Clear all",
     "play": "Play",
     "profile": "Profile",
-    "settings": "Settings"
+    "settings": "Settings",
+    "timeLeft": "Time left",
+    "days": "дней"
   },
   "authScreen": {
     "name": "Name",
@@ -58,5 +60,24 @@
   "settingScreen": {
     "setting": "Setting",
     "language": "Language"
+  },
+  "profile": {
+    "level": "Level",
+    "courtship": "Courtship",
+    "courtshipDuration": "Duration",
+    "getCourtship": "Get courtship"
+  },
+  "league": {
+    "leagueTitle" : "League",
+    "leagueLevel": {
+      "wood": "Wood",
+      "bronze": "Bronze",
+      "iron": "Iron",
+      "silver": "Silver",
+      "gold": "Gold",
+      "diamond": "Diamond",
+      "platinum": "Platinum",
+      "royal": "Royal"
+    }
   }
 }

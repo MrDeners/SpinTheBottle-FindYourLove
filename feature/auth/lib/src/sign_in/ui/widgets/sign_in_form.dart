@@ -78,7 +78,6 @@ class _SignInFormState extends State<SignInForm> {
                 padding: EdgeInsets.only(top: AppDimens.contentPadding16),
               ),
               AppButton(
-                text: LocaleKeys.authScreen_logIn.watchTr(context),
                 isExpanded: false,
                 onTap: () {
                   context.read<SignInBloc>().add(
@@ -88,18 +87,23 @@ class _SignInFormState extends State<SignInForm> {
                         ),
                       );
                 },
+                child: Text(
+                  LocaleKeys.authScreen_logIn.watchTr(context),
+                ),
               ),
               const Padding(
                 padding: EdgeInsets.only(top: AppDimens.contentPadding16),
               ),
               AppButton(
-                text: LocaleKeys.authScreen_createAccount.watchTr(context),
                 isExpanded: false,
                 onTap: () {
                   context.read<SignInBloc>().add(
                         const NavigateToSignUpEvent(),
                       );
                 },
+                child: Text(
+                  LocaleKeys.authScreen_createAccount.watchTr(context),
+                ),
               ),
             ],
           ),

@@ -15,8 +15,8 @@ class ApiMapper {
     final List<UserEntity?> users = usersMap.entries
         .map(
           (MapEntry<String, dynamic> userMap) =>
-              UserEntity.fromJson(userMap.value),
-        )
+      userMap.value != null ? UserEntity.fromJson(userMap.value) : null,
+    )
         .toList();
 
     return users;

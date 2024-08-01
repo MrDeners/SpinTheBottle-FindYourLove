@@ -17,14 +17,6 @@ class NavigateBackEvent extends PlayFieldEvent {
   const NavigateBackEvent();
 }
 
-class NavigateUserProfileEvent extends PlayFieldEvent {
-  final UserModel user;
-
-  const NavigateUserProfileEvent({
-    required this.user,
-  });
-}
-
 class ClosePlayFieldEvent extends PlayFieldEvent {
   const ClosePlayFieldEvent();
 }
