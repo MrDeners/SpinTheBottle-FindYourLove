@@ -1,7 +1,6 @@
 import 'package:core/core.dart';
 import 'package:domain/domain.dart';
 import 'package:domain/usecases/src/session_check_usecase.dart';
-import 'package:meta/meta.dart';
 import 'package:navigation/navigation.dart';
 
 part 'splash_event.dart';
